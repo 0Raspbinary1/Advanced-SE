@@ -4,6 +4,7 @@ Was möchten Sie tun?:
 		Was möchten Sie spielen?:
 			Zahl raten
 			Münze werfen
+			Schere Stein Papier
 			...
 	Quiz:
 		Welches Quiz möchten Sie spielen?:
