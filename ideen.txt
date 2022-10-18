@@ -1,0 +1,7 @@
+Adressbuch
+Stein Schere Papier
+Galgenmännchen (Hangman)
+Taschenrechner
+Einheitenumrechner (Längen, Währung, Daten...)
+komplexes notizbuch
+

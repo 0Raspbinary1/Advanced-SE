@@ -1,0 +1,28 @@
+Start:
+Was möchten Sie tun?:
+	Spielen:
+		Was möchten Sie spielen?:
+			Zahl raten
+			Münze werfen
+			...
+	Quiz:
+		Welches Quiz möchten Sie spielen?:
+			Astro-Quiz
+			Deutschland-Quiz
+	Notizen:
+		Notiz-Menu:
+			Notiz erstellen
+			Notiz löschen
+			Notiz bearbeiten
+	Umrechnen:
+		Was möchten Sie umrechnen?:
+			Länge
+			Gewicht
+			Zeit
+			Temperatur
+			Energie
+			Fläche
+			...
+			
+			
+		
