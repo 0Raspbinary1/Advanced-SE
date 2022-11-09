@@ -10,7 +10,7 @@ public class ConvertationStartSite {
 		setMap();
 		Scanner sc = new Scanner(System.in);
 		String input; 
-		String text = "Was möchten Sie umrechnen? \n 1: Gewicht \n ...";
+		String text = "Was möchten Sie umrechnen? \n 1: Gewicht \n 2: Längenangaben \n ...";
 		System.out.println(text);
 		
 		input = sc.nextLine();
@@ -19,10 +19,12 @@ public class ConvertationStartSite {
 			input = sc.nextLine();
 		}
 		
-		new Convertation(map.get(input));
+		new Convertation(map.get(input), args);
+		sc.close();
 	}
 	
 	private static void setMap() {
 		map.put("1", "Weighting");
+		map.put("2", "Length");
 	}
 }

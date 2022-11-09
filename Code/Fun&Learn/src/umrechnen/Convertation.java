@@ -9,19 +9,20 @@ import java.util.Scanner;
 public class Convertation {
 	private Scanner sc =  new Scanner(System.in);
 	private Map<String, Number> map = new HashMap<>();
-	private List<String> defaultUnits = new ArrayList<>() {{add("kg");}};
+	private List<String> defaultUnits = new ArrayList<>() {{add("kg"); add("m");}};
 	private String unit;
 	private double inputNumber;
 	private String goalUnit;
 	
-	public Convertation(String type){
+	public Convertation(String type, String [] args){
 		this.map = this.setMap(type);
-		this.perform();
+		this.perform(args);
 	}
-	private void perform() {
+	private void perform(String [] args) {
 		this.askForInputs();
 		double output = this.convert();
 		System.out.println(output);
+		ConvertationStartSite.main(args);
 	}
 	private double convert() {
 		double help;
@@ -51,6 +52,8 @@ public class Convertation {
 		switch (type) {
 			case "Weighting":
 				return Weighting.weights;
+			case "Length": 
+				return Length.lenghts;
 		}
 		return null;
 	}
