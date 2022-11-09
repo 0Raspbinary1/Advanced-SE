@@ -79,6 +79,8 @@ public class Convertation {
 				return Length.lenghts;
 			case "Temperature":
 				return Temperature.tempertures;
+			case "Area":
+				return Area.areas;
 		}
 		return null;
 	}
