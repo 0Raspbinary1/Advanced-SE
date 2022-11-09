@@ -1,12 +1,15 @@
 package umrechnen;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Convertation {
 	private Scanner sc =  new Scanner(System.in);
-	private Map<String, Integer> map = new HashMap<>();
+	private Map<String, Number> map = new HashMap<>();
+	private List<String> defaultUnits = new ArrayList<>() {{add("kg");}};
 	private String unit;
 	private double inputNumber;
 	private String goalUnit;
@@ -22,16 +25,15 @@ public class Convertation {
 	}
 	private double convert() {
 		double help;
-		if(this.unit.equals("kg")) {
-			return this.inputNumber /Math.pow(10,this.map.get(goalUnit));
+		if(this.defaultUnits.contains(this.unit)) {
+			return this.inputNumber / (double) this.map.get(goalUnit);
 		}else {
-			help = this.inputNumber * Math.pow(10, this.map.get(unit));
-			if(this.goalUnit.equals("kg")) {
+			help = this.inputNumber * (double) this.map.get(unit);
+			if(this.defaultUnits.contains(this.goalUnit)) {
 				return help;
 			}
 		}
-//		System.out.println(help);
-		return help / Math.pow(10, this.map.get(goalUnit));
+		return help / (double) this.map.get(goalUnit);
 	}
 	private void askForInputs() {
 		do {
@@ -45,7 +47,7 @@ public class Convertation {
 			this.goalUnit = sc.nextLine().toLowerCase();
 		} while (!this.map.containsKey(this.goalUnit));
 	}
-	private Map<String, Integer> setMap(String type) {
+	private Map<String, Number> setMap(String type) {
 		switch (type) {
 			case "Weighting":
 				return Weighting.weights;
