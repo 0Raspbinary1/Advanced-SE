@@ -10,7 +10,7 @@ public class Convertation {
 	
 	private Scanner sc =  new Scanner(System.in);
 	private Map<String, Number> map = new HashMap<>();
-	private List<String> defaultUnits = new ArrayList<>() {{add("kg"); add("m"); add("celsius");}};
+	private List<String> defaultUnits = new ArrayList<>() {{add("kg"); add("m"); add("celsius"); add("qm"); add("h");}};
 	private String unit;
 	private double inputNumber;
 	private String goalUnit;
@@ -30,18 +30,18 @@ public class Convertation {
 		}else {
 			output = this.convert();
 		}
-		System.out.println(output);
+		System.out.println("\nErgebnis:\n-------------------------\n" + output +"\n-------------------------\n");
 		ConvertationStartSite.main(args);
 	}
 	
 	private double convertTemperture() {
 		double help;
 		if(this.defaultUnits.contains(this.unit)) {
-			return Temperature.convertCelsius(this.inputNumber, this.goalUnit);
+			return Temperature.convertFromCelsius(this.inputNumber, this.goalUnit);
 		}else if(this.unit.equals("kelvin")) {
-			return Temperature.convertKelvin(this.inputNumber, this.goalUnit);
+			return Temperature.convertFromKelvin(this.inputNumber, this.goalUnit);
 		}else{
-			return Temperature.convertFahrenheit(this.inputNumber, this.goalUnit);
+			return Temperature.convertFromFahrenheit(this.inputNumber, this.goalUnit);
 		}
 	}
 	
@@ -78,9 +78,11 @@ public class Convertation {
 			case "Length": 
 				return Length.lenghts;
 			case "Temperature":
-				return Temperature.tempertures;
+				return Temperature.temperatures;
 			case "Area":
 				return Area.areas;
+			case "Time":
+				return Time.times;
 		}
 		return null;
 	}

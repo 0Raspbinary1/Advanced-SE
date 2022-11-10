@@ -3,8 +3,8 @@ package umrechnen;
 import java.util.Map;
 
 public class Temperature implements ConvertationStates {
-	public static final Map<String, Number> tempertures = Map.of("kelvin",0.0, "celsius", 0.0, "fahrenheit",0.0);
-	public static double convertCelsius(double celsius, String unit) {
+	public static final Map<String, Number> temperatures = Map.of("kelvin",0.0, "celsius", 0.0, "fahrenheit",0.0);
+	public static double convertFromCelsius(double celsius, String unit) {
 		if(unit.equals("kelvin")) {
 			return celsius + 273.15;
 		}else{
@@ -12,21 +12,20 @@ public class Temperature implements ConvertationStates {
 		}
 	}
 	
-	public static double convertKelvin(double kelvin, String unit) {
+	public static double convertFromKelvin(double kelvin, String unit) {
 		double help = kelvin - 273.15;
 		if(unit.equals("celsius")) {
 			return help;
 		}
-		return convertCelsius(help, unit);
+		return convertFromCelsius(help, unit);
 		
 	}
 	
-	public static double convertFahrenheit(double fahrenheit, String unit) {
+	public static double convertFromFahrenheit(double fahrenheit, String unit) {
 		double help = (fahrenheit - 32) * (5/9);
-		System.out.println(help);
 		if(unit.equals("celsius")) {
 			return help;
 		}
-		return convertCelsius(help, unit);
+		return convertFromCelsius(help, unit);
 	}
 }
