@@ -8,8 +8,13 @@ import java.util.Scanner;
 public class Quiz {
 
 	private int score = 0;
+	Question question = new Question(null);
 	
-	public Quiz(Map<String, String[]> questions) {
+	public Quiz(String eingabe) {
+		
+	}
+	
+	public void holeFragen() {
 		
 	}
 
