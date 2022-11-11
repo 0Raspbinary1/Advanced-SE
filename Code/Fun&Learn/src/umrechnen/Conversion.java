@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Convertation {
+public class Conversion {
 	
 	private Scanner sc =  new Scanner(System.in);
 	private Map<String, Number> map = new HashMap<>();
@@ -16,7 +16,7 @@ public class Convertation {
 	private String goalUnit;
 	private String type;
 	
-	public Convertation(String type, String[] args){
+	public Conversion(String type, String[] args){
 		this.map = this.setMap(type);
 		this.type = type;
 		this.perform(args);
@@ -31,11 +31,10 @@ public class Convertation {
 			output = this.convert();
 		}
 		System.out.println("\nErgebnis:\n-------------------------\n" + output +"\n-------------------------\n");
-		ConvertationStartSite.main(args);
+		ConversionStartSite.main(args);
 	}
 	
 	private double convertTemperture() {
-		double help;
 		if(this.defaultUnits.contains(this.unit)) {
 			return Temperature.convertFromCelsius(this.inputNumber, this.goalUnit);
 		}else if(this.unit.equals("kelvin")) {
@@ -44,7 +43,7 @@ public class Convertation {
 			return Temperature.convertFromFahrenheit(this.inputNumber, this.goalUnit);
 		}
 	}
-	
+	 
 	private double convert() {
 		double help;
 		if(this.defaultUnits.contains(this.unit)) {
@@ -64,13 +63,26 @@ public class Convertation {
 			this.unit = sc.nextLine().toLowerCase();
 		} while (!this.map.containsKey(this.unit));
 		System.out.println("Bitte den Wert zum umrechnen eingeben:");
-		this.inputNumber = sc.nextDouble();
+		this.inputNumber = readDoubleInput();
 		System.out.println("Bitte die Einheit eingeben, in die umgerechnet werden soll: ");
 		do {
 			this.goalUnit = sc.nextLine().toLowerCase();
 		} while (!this.map.containsKey(this.goalUnit));
 	}
 	
+	private double readDoubleInput() {
+		while(!sc.hasNextDouble()) {
+			System.out.println("Eingabe nicht erkannt. Bitte den Wert zum umrechnen eingeben:");
+			sc.next();
+		}
+		if (sc.hasNextDouble()) {
+			return sc.nextDouble();
+		} else {
+			// Should never occur
+			return 0;
+		}
+	}
+
 	private Map<String, Number> setMap(String type) {
 		switch (type) {
 			case "Weighting":

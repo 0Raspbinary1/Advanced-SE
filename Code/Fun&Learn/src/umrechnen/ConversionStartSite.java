@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import alles.HandelExit;
 
-public class ConvertationStartSite {
+public class ConversionStartSite {
 	private static Map<String, String> map = new HashMap<>();
 	public static void main(String[] args) {
 		setMap();
@@ -24,7 +24,7 @@ public class ConvertationStartSite {
 		if(map.get(input).equals("Start") || map.get(input).equals("Exit")) {
 			HandelExit.perform(map.get(input), args);
 		}else {
-			new Convertation(map.get(input), args);
+			new Conversion(map.get(input), args);
 		}
 		sc.close();
 	}

@@ -2,7 +2,7 @@ package umrechnen;
 
 import java.util.Map;
 
-public class Temperature implements ConvertationStates {
+public class Temperature implements ConversionStates {
 	public static final Map<String, Number> temperatures = Map.of("kelvin",0.0, "celsius", 0.0, "fahrenheit",0.0);
 	public static double convertFromCelsius(double celsius, String unit) {
 		if(unit.equals("kelvin")) {
