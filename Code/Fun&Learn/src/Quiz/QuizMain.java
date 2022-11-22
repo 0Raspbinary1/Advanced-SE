@@ -1,14 +1,19 @@
 package Quiz;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class QuizMain {
+import alles.HandleExit;
 
+public class QuizMain {
+	private static Map<String, String> map = new HashMap<>();
 	public static void main(String[] args) {
-		// testDeF();
+		setMap();
+		System.out.println("xxxxxxxxxxxxx "+ ""
+				+ map.get("1"));
 
 		Scanner sc = new Scanner(System.in);
 
@@ -18,20 +23,36 @@ public class QuizMain {
 				+ "1: Deutschland-Quiz" 
 				+ "2: Astronomie-Quiz");
 
-		int eingabe = sc.nextInt();
-
-		switch (eingabe) {
-		case 1:
-			startQuiz("de");
-		case 2:
-			startQuiz("as");
-
+		String input = sc.nextLine().toUpperCase();
+		input.toUpperCase();
+		System.out.println("nach dem nextLine()");
+		while(!map.containsKey(input)) {
+			System.out.println("Falsche Eingabe, versuch es erneut:");
+			input = sc.nextLine().toUpperCase();
 		}
+		if(map.get(input).equals("Start") || map.get(input).equals("Exit")) {
+			HandleExit.perform(map.get(input), args);
+		}else {
+			//new Conversion(map.get(input), args);
+			new Quiz(map.get(input).toUpperCase());
+		}
+		sc.close();	
+
+
 
 	}
 
 	public static void startQuiz(String eingabe) {
+		System.out.println("QuizMain.startQuiz");
 		Quiz quiz = new Quiz(eingabe);
+		quiz.startQuiz();
+	}
+	
+	private static void setMap() {
+		map.put("1", "Deutschland");
+		map.put("2", "Astronomie");
+		map.put("X", "Exit");
+		map.put("S", "Start");
 	}
 
 //		String frage1 = "Wie weit etwa ist die Sonne im Durchschnitt von der Erde entfernt?";
