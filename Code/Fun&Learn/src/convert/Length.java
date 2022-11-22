@@ -1,4 +1,4 @@
-package umrechnen;
+package convert;
 
 import java.util.Map;
 

@@ -32,7 +32,7 @@ public class Main {
 		if (auswahl == 3) {
 
 		}
-
+		sc.close();
 	}
 
 }
