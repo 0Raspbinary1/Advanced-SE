@@ -75,12 +75,7 @@ public class Conversion {
 			System.out.println("Eingabe nicht erkannt. Bitte den Wert zum umrechnen eingeben:");
 			sc.next();
 		}
-		if (sc.hasNextDouble()) {
-			return sc.nextDouble();
-		} else {
-			// Should never occur
-			return 0;
-		}
+		return sc.nextDouble();
 	}
 
 	private Map<String, Number> setMap(String type) {
@@ -95,8 +90,9 @@ public class Conversion {
 				return Area.areas;
 			case "Time":
 				return Time.times;
+			default:
+				return null;
 		}
-		return null;
 	}
 }
 

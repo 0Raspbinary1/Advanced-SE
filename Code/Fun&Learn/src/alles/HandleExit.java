@@ -1,6 +1,6 @@
 package alles;
 
-public class HandelExit {
+public class HandleExit {
 
 	public static void perform(String string, String[] args) {
 		switch(string) {

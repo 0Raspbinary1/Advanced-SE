@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import alles.HandelExit;
+import alles.HandleExit;
 
 public class ConversionStartSite {
 	private static Map<String, String> map = new HashMap<>();
@@ -22,7 +22,7 @@ public class ConversionStartSite {
 			input = sc.nextLine().toUpperCase();
 		}
 		if(map.get(input).equals("Start") || map.get(input).equals("Exit")) {
-			HandelExit.perform(map.get(input), args);
+			HandleExit.perform(map.get(input), args);
 		}else {
 			new Conversion(map.get(input), args);
 		}
