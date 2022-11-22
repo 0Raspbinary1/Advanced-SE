@@ -10,6 +10,7 @@ public class Conversion {
 	
 	private Scanner sc =  new Scanner(System.in);
 	private Map<String, Number> map = new HashMap<>();
+	@SuppressWarnings("serial")
 	private List<String> defaultUnits = new ArrayList<>() {{add("kg"); add("m"); add("celsius"); add("qm"); add("h");}};
 	private String unit;
 	private double inputNumber;
