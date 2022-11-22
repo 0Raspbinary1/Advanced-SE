@@ -1,21 +1,44 @@
 package Quiz;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Quiz {
 
 	private int score = 0;
-	Question question = new Question(null);
+	private Question [] questions;
 	
 	public Quiz(String eingabe) {
-		
+		ParseQuestions parse = new ParseQuestions(eingabe);
+		this.questions = parse.getQuestionArray();
 	}
-	
-	public void holeFragen() {
-		
+
+	public void perform() {
+		Scanner sc = new Scanner(System.in);
+		for(int i = 0; i <this.questions.length;i++) {
+			System.out.println(this.questions[i].getQuestion());
+			printAnswers(this.questions[i].getAnwsers());
+			String guess = sc.nextLine();
+			validateAnswer(guess, this.questions[i].getRightAnswer());
+		}
+		System.out.println("Quiz zu Ende, "+ this.score +" Punkte erreicht");
+		sc.close();
+	}
+
+	private void validateAnswer(String guess, String rightAnswer) {
+		if(guess.equals(rightAnswer)) {
+			System.out.println("Richtige Antwort");
+			this.score++;
+		}else {
+			System.out.println("Falsche Antwort");
+		}
+		System.out.println("Deine aktuelle Punktzahl beträgt: "+ this.score +"\n\n");
+	}
+
+	private void printAnswers(String[] answers) {
+		char index = 'a';
+		for(int i =0; i< answers.length; i++) {
+			System.out.println(index++ + " : "+ answers[i]);
+		}
 	}
 
 }

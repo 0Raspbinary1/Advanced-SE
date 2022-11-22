@@ -1,11 +1,15 @@
 package Quiz;
 
-public class AstronomieF {
+public class AstronomieF implements Questions{
 
 	String[][] as;
 
 	public AstronomieF() {
 		initQ();
+	}
+
+	public String[][] getArray() {
+		return as;
 	}
 
 	public void initQ() {

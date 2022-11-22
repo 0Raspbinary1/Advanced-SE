@@ -1,24 +1,33 @@
 package Quiz;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Question {
 
-	DeutschlandF de = null;
-	AstronomieF as = null;
-
-	public Question(String typ) {
-
-		switch (typ.toLowerCase()) {
-		case "deutschland":
-			de = new DeutschlandF();
-		case "astronomie":
-			as = new AstronomieF();
-		}
-
+//	DeutschlandF de = null;
+//	AstronomieF as = null;
+	
+	private String question;
+	private String [] anwsers;
+	private String rightAnswer;
+	
+	public String getQuestion() {
+		return question;
 	}
 
+	public String[] getAnwsers() {
+		return anwsers;
+	}
+
+	public String getRightAnswer() {
+		return rightAnswer;
+	}
+
+	
+	public Question(String question, String[] answers, String rightAnswer) {
+		this.question = question;
+		this.anwsers = answers;
+		this.rightAnswer = rightAnswer;
+	}
+	
 //	public void initializeDeutschlandFragen(DeutschlandF de) {
 //		this.frage = de.frage;
 //	}
