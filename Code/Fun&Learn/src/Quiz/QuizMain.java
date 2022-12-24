@@ -12,18 +12,16 @@ public class QuizMain {
 	private static Map<String, String> map = new HashMap<>();
 	public static void main(String[] args) {
 		setMap();
-		System.out.println("xxxxxxxxxxxxx "+ ""
-				+ map.get("1"));
 
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Willkommen im Quizinatooorr\n\n"
 				+ "Die Fragen sind mithilfe der Buchstaben zu beantworten!\n\n"
 				+ "Welche Themengebiet möchstest du spielen?\n\n" 
-				+ "1: Deutschland-Quiz" 
+				+ "1: Deutschland-Quiz\n" 
 				+ "2: Astronomie-Quiz");
 
-		String input = sc.nextLine().toUpperCase();
+		String input = sc.nextLine();
 		input.toUpperCase();
 		System.out.println("nach dem nextLine()");
 		while(!map.containsKey(input)) {
