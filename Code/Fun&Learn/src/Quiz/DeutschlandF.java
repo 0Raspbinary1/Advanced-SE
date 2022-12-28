@@ -1,9 +1,6 @@
 package Quiz;
 
 public class DeutschlandF {
-
-//	public String[][] de = new String [20][];
-	//de[0][0] = "";
 	
 	String[][] de;
 

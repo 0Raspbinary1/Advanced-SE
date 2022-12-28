@@ -1,6 +1,8 @@
 package alles;
 import java.util.Scanner;
 
+import Quiz.QuizMain;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -27,6 +29,12 @@ public class Main {
 
 		if (input == 2) {
 			System.out.println("Sie haben Quiz ausgewählt!");
+			try {
+				QuizMain.main(args);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		if (input == 3) {
 			System.out.println("Sie haben Notizen ausgewählt!");

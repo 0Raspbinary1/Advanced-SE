@@ -10,40 +10,52 @@ import alles.HandleExit;
 
 public class QuizMain {
 	private static Map<String, String> map = new HashMap<>();
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		setMap();
-
 		Scanner sc = new Scanner(System.in);
-
+		
+		//könnte man hier noch dynamisch machen
 		System.out.println("Willkommen im Quizinatooorr\n\n"
 				+ "Die Fragen sind mithilfe der Buchstaben zu beantworten!\n\n"
-				+ "Welche Themengebiet möchstest du spielen?\n\n" 
+				+ "Was möchtest du spielen / machen?\n\n" 
 				+ "1: Deutschland-Quiz\n" 
-				+ "2: Astronomie-Quiz");
+				+ "2: Astronomie-Quiz\n"
+				+ "S: Zurück zum Start\n"
+				+ "X: Anwendung beenden");
 
-		String input = sc.nextLine();
-		input.toUpperCase();
-		System.out.println("nach dem nextLine()");
+		String input = sc.nextLine().toUpperCase();
+		System.out.println(input);
 		while(!map.containsKey(input)) {
 			System.out.println("Falsche Eingabe, versuch es erneut:");
 			input = sc.nextLine().toUpperCase();
 		}
 		if(map.get(input).equals("Start") || map.get(input).equals("Exit")) {
+			System.out.println("Du hast " + map.get(input) + " gewählt!");
+//			if(map.get(input).equals("Exit")) {
+//				System.out.println("why did you do this to me?? :(");
+//					StringBuffer str = new StringBuffer();
+//					Thread.sleep(1200);
+//					for(int i = 0; i < 6; i++) {
+//						Thread.sleep(300);
+//						System.out.print("#");
+//					}
+//					str = new StringBuffer();
+//					System.out.print(" R");
+//					Thread.sleep(1500);
+//					System.out.print("I");
+//					Thread.sleep(1500);
+//					System.out.print("P ");
+//					for(int i = 0; i < 6; i++) {
+//						Thread.sleep(300);
+//						System.out.print("#");
+//					}
+//			}
 			HandleExit.perform(map.get(input), args);
 		}else {
 			//new Conversion(map.get(input), args);
-			new Quiz(map.get(input).toUpperCase());
+			new Quiz(map.get(input).toUpperCase(), args);
 		}
 		sc.close();	
-
-
-
-	}
-
-	public static void startQuiz(String eingabe) {
-		System.out.println("QuizMain.startQuiz");
-		Quiz quiz = new Quiz(eingabe);
-		quiz.startQuiz();
 	}
 	
 	private static void setMap() {
@@ -52,6 +64,9 @@ public class QuizMain {
 		map.put("X", "Exit");
 		map.put("S", "Start");
 	}
+
+// ----------------------------------------------------------------------------
+	
 
 //		String frage1 = "Wie weit etwa ist die Sonne im Durchschnitt von der Erde entfernt?";
 //		String[] antworten = {"c) 150.000.000 km","a) 10.000 km", "b) 12.000.000.000 km", "d) 380.000 km"};
@@ -93,32 +108,32 @@ public class QuizMain {
 //	}
 
 	// Testen
-	public static void testDeF() {
-		DeutschlandF def = new DeutschlandF();
-		def.initQ();
-		String d[][] = def.de;
-
-		for (int i = 0; i < d.length; i++) {
-			for (int j = 0; j <= 5; j++) {
-				if (d[i][j] != null) {
-					System.out.println(d[i][j]);
-				}
-			}
-		}
-	}
-
-	public static void testAsF() {
-		AstronomieF asf = new AstronomieF();
-		asf.initQ();
-		String d[][] = asf.as;
-
-		for (int i = 0; i < d.length; i++) {
-			for (int j = 0; j <= 5; j++) {
-				if (d[i][j] != null) {
-					System.out.println(d[i][j]);
-				}
-			}
-		}
-	}
+//	public static void testDeF() {
+//		DeutschlandF def = new DeutschlandF();
+//		def.initQ();
+//		String d[][] = def.de;
+//
+//		for (int i = 0; i < d.length; i++) {
+//			for (int j = 0; j <= 5; j++) {
+//				if (d[i][j] != null) {
+//					System.out.println(d[i][j]);
+//				}
+//			}
+//		}
+//	}
+//
+//	public static void testAsF() {
+//		AstronomieF asf = new AstronomieF();
+//		asf.initQ();
+//		String d[][] = asf.as;
+//
+//		for (int i = 0; i < d.length; i++) {
+//			for (int j = 0; j <= 5; j++) {
+//				if (d[i][j] != null) {
+//					System.out.println(d[i][j]);
+//				}
+//			}
+//		}
+//	}
 
 }

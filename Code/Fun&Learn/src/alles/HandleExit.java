@@ -1,8 +1,10 @@
 package alles;
 
+import Quiz.QuizMain;
+
 public class HandleExit {
 
-	public static void perform(String string, String[] args) {
+	public static void perform(String string, String[] args) throws InterruptedException {
 		switch(string) {
 			case "Start":
 				alles.Main.main(args);
@@ -10,7 +12,8 @@ public class HandleExit {
 			case "Exit":
 				System.exit(0);
 				break;
-			default:
+			case "Themen":
+				QuizMain.main(args);
 				break;
 		}
 	}
