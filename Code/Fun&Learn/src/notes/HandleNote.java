@@ -126,8 +126,9 @@ public class HandleNote {
 	
 	private void inititateOptionMap() {
 		this.optionMap.put("A", "show");
-		this.optionMap.put("L", "delete");
+		this.optionMap.put("D", "delete");
 		this.optionMap.put("N", "new");
+		this.optionMap.put("L", "list");
 		this.optionMap.put("X", "Exit");
 		this.optionMap.put("S", "Start");
 	}
@@ -154,7 +155,10 @@ public class HandleNote {
 		case "new": 
 			createNote();
 			break;
-		}	
+		case "list":
+			list(args);
+			break;
+		}
 	}
 	
 	
