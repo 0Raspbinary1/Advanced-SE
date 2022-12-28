@@ -142,7 +142,7 @@ public class HandleNote {
 		System.out.println(text);
 		String input = this.optionMap.get(HandleInput.getInput(optionMap));
 		if(input.equals("Exit") || input.equals("Start")) {
-			HandleExit.perform("Exit", args);
+			HandleExit.perform(input , args);
 		}
 		switch(input) {
 		case "show":
