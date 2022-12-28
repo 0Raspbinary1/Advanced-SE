@@ -10,7 +10,7 @@ public class NotesStartSite {
 	private static HashMap<String, String> map = new HashMap<>();
 	public static void main(String[] args) {
 		setMap();
-		String text = "Bitte wähle einen Modus aus:\n 1: Neue Notiz erstellen\n 2: Notizen auflisten\n S: Zum Start zurück\n "
+		String text = "Bitte waehle einen Modus aus:\n 1: Neue Notiz erstellen\n 2: Notizen auflisten\n S: Zum Start zurueck\n "
 				+ "X: Programm beenden \n...";
 		System.out.println(text);
 		

@@ -9,8 +9,8 @@ public class ConversionStartSite {
 	private static HashMap<String, String> map = new HashMap<>();
 	public static void main(String[] args) {
 		setMap();
-		String text = "Was möchten Sie umrechnen? \n 1: Gewicht \n 2: Längenangaben \n 3: Temperaturen \n 4: Fläche \n"
-				+ " 5: Zeit \n S: Zum Start zurück \n X: Programm beenden \n...";
+		String text = "Was moechten Sie umrechnen? \n 1: Gewicht \n 2: Längenangaben \n 3: Temperaturen \n 4: Fläche \n"
+				+ " 5: Zeit \n S: Zum Start zurueck \n X: Programm beenden \n...";
 		System.out.println(text);
 		
 		String input = HandleInput.getInput(map);

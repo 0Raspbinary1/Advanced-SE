@@ -20,7 +20,7 @@ public class HandleNote {
 	private Map<String, String> fileMap;
 	private HashMap<String, String> numberMap = new HashMap<>();
 	private HashMap<String, String> optionMap = new HashMap<>();
-	private String text = "Option auswählen\n A: Anzeigen\n L: Loeschen\n N: neue Notiz erstellen\n S: zum Start zurück\n X: Programm beenden";
+	private String text = "Option auswählen\n A: Anzeigen\n L: Loeschen\n N: neue Notiz erstellen\n S: zum Start zurueck\n X: Programm beenden";
 	
 	public HandleNote(String type, String[] args) {
 		initiateMaps();
@@ -40,7 +40,7 @@ public class HandleNote {
 		Path path = Paths.get(pathString);
 		try {
 			if(Files.deleteIfExists(path)) {
-				System.out.println("Notiz \"" + this.fileName + "\" gelöscht");
+				System.out.println("Notiz \"" + this.fileName + "\" geloescht");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -57,7 +57,7 @@ public class HandleNote {
 	}
 	
 	private void createFile() {
-		System.out.println("Bitte den Titel für die Notiz eingeben");
+		System.out.println("Bitte den Titel fuer die Notiz eingeben");
 		String title = getTitle() + ".txt";
 		File file = new File(new NoteList().getDir() + File.separator + title);
 		try {
@@ -135,7 +135,7 @@ public class HandleNote {
 	private void chooseNote(String[] args) {
 		System.out.println("Bitte den Index der Notiz eingeben: ");
 		this.fileName = this.numberMap.get(HandleInput.getInput(this.numberMap));
-		System.out.println("Notiz \"" + this.fileName + "\" ausgewählt");
+		System.out.println("Notiz \"" + this.fileName + "\" ausgewaehlt");
 		performOptionOnNote(args);
 	}
 	
