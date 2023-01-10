@@ -27,10 +27,10 @@ public class FunLearn {
 
 	private static void validateInput(String [] args) {
 		String input = HandleInput.getInput(map, System.in);
-		if(map.get(input).equals("Exit")) {
-			HandleExit.perform(map.get(input), args);
+		if(input.equals("Exit")) {
+			HandleExit.perform(input, args);
 		}else {
-			openMode(map.get(input), args);
+			openMode(input, args);
 		}
 	}
 
