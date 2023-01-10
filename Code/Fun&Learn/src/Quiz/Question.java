@@ -29,8 +29,8 @@ public class Question {
 //		}
 	}
 
-	// könnte man dynamisch machen (nicht für jede Kategorie eine Methode
-	// das kommt dann in das Review etc. mitrein
+	// könnte man dynamisch machen (nicht für jede Kategorie eine Methode)
+	// das kommt dann in das Review etc. mit rein
 	public void initQuestionDE() {
 		questionArr = new Question[de.de.length];
 
