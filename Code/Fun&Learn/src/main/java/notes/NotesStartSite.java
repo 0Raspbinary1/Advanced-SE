@@ -16,10 +16,10 @@ public class NotesStartSite {
 		System.out.println(text);
 		
 		String input = HandleInput.getInput(map, System.in);
-		if(map.get(input).equals("Start") || map.get(input).equals("Exit")) {
-			HandleExit.perform(map.get(input), args);
+		if(input.equals("Start") || input.equals("Exit")) {
+			HandleExit.perform(input, args);
 		}else {
-			new HandleNote(map.get(input), args, System.in);
+			new HandleNote(input, args, System.in);
 		}
 	}
 	private static void setMap() {
