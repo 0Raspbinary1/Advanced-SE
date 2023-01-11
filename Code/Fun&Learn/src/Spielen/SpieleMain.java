@@ -8,7 +8,7 @@ public class SpieleMain {
 		Scanner sc = new Scanner(System.in);
 		int input_game = 0;
 
-		System.out.println("Hallo und herzlich Willkommen im Spiele-Modus!\n" + "Was möchtest du spielen?\n"
+		System.out.println("Hallo und herzlich Willkommen im Spiele-Modus!\n" + "Was moechtest du spielen?\n"
 				+ "1: Tik Tak Toe\n" + "2: Schiffe versenken\n" + "3: Zahlen raten\n");
 
 		input_game = sc.nextInt();

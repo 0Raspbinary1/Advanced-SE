@@ -8,12 +8,11 @@ public class SchereSteinPapier {
 	public static void main(String[] args) {
 
 		System.out.println("Willkommen bei Schere Stein Papier!\n"
-				+ "Wir spielen Best-Of-Three, viel Glück!\n");
+				+ "Wir spielen Best-Of-Three, viel Glueck!\n");
 		for(int i = 0; i < 20;i++) {
 			start();
 		}
 	}
-	
 	public static void start() {
 		Scanner sc = new Scanner(System.in);
 		String userInput;
@@ -46,9 +45,9 @@ public class SchereSteinPapier {
 				}
 			}
 			if(userPoints > pcPoints) {
-				System.out.println("Glückwunsch zum Sieg!");
+				System.out.println("Glueckwunsch zum Sieg!");
 			} else {
-				System.out.println("Schade, vielleicht beim nächsten Spiel!");
+				System.out.println("Schade, vielleicht beim naechsten Spiel!");
 			}
 			System.out.println("willst du noch mal spielen?\n"
 					+ "0: nein\n"
