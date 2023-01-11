@@ -8,7 +8,7 @@ public class Question {
 	DeutschlandF de = new DeutschlandF();
 	AstronomieF as = new AstronomieF();
 
-	// unnötig String[][] q;
+	// unnoetig String[][] q;
 
 	Question[] questionArr;
 
@@ -29,7 +29,7 @@ public class Question {
 //		}
 	}
 
-	// könnte man dynamisch machen (nicht für jede Kategorie eine Methode)
+	// koennte man dynamisch machen (nicht fuer jede Kategorie eine Methode)
 	// das kommt dann in das Review etc. mit rein
 	public void initQuestionDE() {
 		questionArr = new Question[de.de.length];

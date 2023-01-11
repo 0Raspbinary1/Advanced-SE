@@ -15,13 +15,13 @@ public class QuizMain {
 		setMap();
 		Scanner sc = new Scanner(System.in);
 		
-		//könnte man hier noch dynamisch machen
+		//kï¿½nnte man hier noch dynamisch machen
 		System.out.println("Willkommen im Quizinatooorr\n\n"
 				+ "Die Fragen sind mithilfe der Buchstaben zu beantworten!\n\n"
-				+ "Was möchtest du spielen / machen?\n\n" 
+				+ "Was moechtest du spielen / machen?\n\n" 
 				+ "1: Deutschland-Quiz\n" 
 				+ "2: Astronomie-Quiz\n"
-				+ "S: Zurück zum Start\n"
+				+ "S: Zurueck zum Start\n"
 				+ "X: Anwendung beenden");
 
 		String input = sc.nextLine().toUpperCase();
@@ -31,7 +31,7 @@ public class QuizMain {
 			input = sc.nextLine().toUpperCase();
 		}
 		if(map.get(input).equals("Start") || map.get(input).equals("Exit")) {
-			System.out.println("Du hast " + map.get(input) + " gewählt!");
+			System.out.println("Du hast " + map.get(input) + " gewaehlt!");
 //			if(map.get(input).equals("Exit")) {
 //				System.out.println("why did you do this to me?? :(");
 //					StringBuffer str = new StringBuffer();
@@ -77,9 +77,9 @@ public class QuizMain {
 //				+ "Die Fragen sind mithilfe der Buchstaben zu beantworten!\n\n");
 //		
 ////		String q1 = "Welche Farbe hat ein Apfel?\n\n"
-////					+ "a) rot / grün \n"
+////					+ "a) rot / gruen \n"
 ////					+ "b) gelb\n"
-////					+ "c) weiß\n"
+////					+ "c) weiss\n"
 ////					+ "d) blau";
 ////		String q2 = "Welche Farbe haben Bananen?\n\n"
 ////					+ "a) schwarz\n"

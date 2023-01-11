@@ -29,7 +29,7 @@ public class AstronomieF {
 		this.as[2][3] = "c) 13,7 Mrd. Jahre";
 		this.as[2][4] = "d) 2,1 Bn. Jahre";
 		this.as[2][5] = "c";
-		this.as[3][0] = "Wie lautet die Reihenfolge der Planeten von der Sonne nach außen?";
+		this.as[3][0] = "Wie lautet die Reihenfolge der Planeten von der Sonne nach aussen?";
 		this.as[3][1] = "a) Mars, Venus, Erde, Merkur, Jupiter, Saturn, Neptun, Uranus";
 		this.as[3][2] = "b) Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun";
 		this.as[3][3] = "c) Jupiter, Neptun, Mars, Venus, Erde, Merkur, Uranus, Saturn";
@@ -41,7 +41,7 @@ public class AstronomieF {
 		this.as[4][3] = "c) 730 Millionen Kilometer";
 		this.as[4][4] = "d) 2,3 Milliarden Kilometer";
 		this.as[4][5] = "b";
-		this.as[5][0] = "Und wie viel Zeit benötigt Licht für die Reise von der Sonne zur Erde?";
+		this.as[5][0] = "Und wie viel Zeit benoetigt Licht fuer die Reise von der Sonne zur Erde?";
 		this.as[5][1] = "a) 1 Minute und 7 Sekunden";
 		this.as[5][2] = "b) 8 Minuten und 19 Sekunden";
 		this.as[5][3] = "c) 39 Minuten und 8 Sekunden";
@@ -65,7 +65,6 @@ public class AstronomieF {
 		this.as[8][3] = "";
 		this.as[8][4] = "";
 		this.as[8][5] = "";
-
 	}
 
 }

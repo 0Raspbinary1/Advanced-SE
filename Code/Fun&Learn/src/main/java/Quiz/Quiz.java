@@ -47,7 +47,7 @@ public class Quiz {
 		}
 		System.out.println("Gesamt Score: " + this.score);
 		// dynamisch machen
-		System.out.println("1: Quizmenü\n" + "X: Anwendung beenden\n" + "S: Startmenü");
+		System.out.println("1: Quizmenue\n" + "X: Anwendung beenden\n" + "S: Startmenue");
 		input = sc.nextLine().toUpperCase();
 		if(input.equals("1")) {
 			try {
@@ -67,7 +67,7 @@ public class Quiz {
 	}
 	
 	private static void setMap() {
-		map.put("1", "Hauptmenü");
+		map.put("1", "Hauptmenue");
 		map.put("X", "Exit");
 		map.put("S", "Start");
 	}
