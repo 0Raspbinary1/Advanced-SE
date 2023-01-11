@@ -6,7 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import alles.HandleExit;
+import main.java.alles.HandleExit;
+
 
 public class QuizMain {
 	private static Map<String, String> map = new HashMap<>();

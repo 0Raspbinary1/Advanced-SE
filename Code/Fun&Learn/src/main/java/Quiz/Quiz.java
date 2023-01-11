@@ -3,7 +3,8 @@ package main.java.Quiz;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import alles.HandleExit;
+
+import main.java.alles.HandleExit;
 
 public class Quiz {
 
@@ -57,12 +58,7 @@ public class Quiz {
 			};
 		}
 		if(map.get(input).equals("Start") || map.get(input).equals("Exit")) {
-			
-			try {
 				HandleExit.perform(map.get(input), this.args);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 
