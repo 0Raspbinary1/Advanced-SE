@@ -26,14 +26,9 @@ public class TestEntrace {
 			this.map.put("4", "Umrechnen");
 			this.map.put("X", "Exit");
 		}
-	// test if goes into the right path of the program in this case convert
-	@Test
-	public void testOptionConvert() {
-		assertTrue(true);
-	}
 	
 	@Test
-	public void testHandleInputRightInput() {
+	public void testHandleInputFalseInput() {
 		this.input = "test";
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
 		this.response = HandleInput.getInput(this.map, this.inputStream);
@@ -41,7 +36,7 @@ public class TestEntrace {
 	}
 	
 	@Test
-	public void testHandleInputFalseInput() {
+	public void testHandleInputRightInput() {
 		this.input = "x";
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
 		this.response = HandleInput.getInput(this.map, this.inputStream);
