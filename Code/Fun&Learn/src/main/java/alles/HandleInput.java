@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class HandleInput {
-	public static String getInput(HashMap<String, String> map, InputStream systemIn) {
+	public static String getInput(HashMap<String, String> map, InputStream systemIn, boolean convert) {
 		Scanner sc = new Scanner(systemIn);
 		String input = sc.nextLine().toUpperCase();
 		while(!map.containsKey(input)) {
@@ -17,6 +17,10 @@ public class HandleInput {
 				return "false input";
 			}
 		}
-		return map.get(input);
+		if(convert) {
+			return input;
+		}else {
+			return map.get(input);
+		}
 	}
 }

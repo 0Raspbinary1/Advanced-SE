@@ -1,7 +1,6 @@
 package test.java.all;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -30,8 +29,9 @@ public class TestEntrace {
 	@Test
 	public void testHandleInputFalseInput() {
 		this.input = "test";
+		System.out.println("test");
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
-		this.response = HandleInput.getInput(this.map, this.inputStream);
+		this.response = HandleInput.getInput(this.map, this.inputStream, false);
 		assertEquals(response, "false input");
 	}
 	
@@ -39,7 +39,7 @@ public class TestEntrace {
 	public void testHandleInputRightInput() {
 		this.input = "x";
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
-		this.response = HandleInput.getInput(this.map, this.inputStream);
+		this.response = HandleInput.getInput(this.map, this.inputStream, false);
 		assertEquals(response, "Exit");
 	}
 }

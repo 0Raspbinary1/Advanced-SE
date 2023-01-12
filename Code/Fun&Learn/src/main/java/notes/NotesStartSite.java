@@ -15,7 +15,7 @@ public class NotesStartSite {
 				+ "X: Programm beenden \n...";
 		System.out.println(text);
 		
-		String input = HandleInput.getInput(map, System.in);
+		String input = HandleInput.getInput(map, System.in, false);
 		if(input.equals("Start") || input.equals("Exit")) {
 			HandleExit.perform(input, args);
 		}else {
