@@ -8,8 +8,12 @@ public class SpieleMain {
 		Scanner sc = new Scanner(System.in);
 		int input_game = 0;
 
-		System.out.println("Hallo und herzlich Willkommen im Spiele-Modus!\n" + "Was moechtest du spielen?\n"
-				+ "1: Tik Tak Toe\n" + "2: Schiffe versenken\n" + "3: Zahlen raten\n");
+		System.out.println("\nHallo und herzlich Willkommen im Spiele-Modus!\n" + 
+		"Was moechtest du spielen?\n" + 
+		"1: Tik Tak Toe\n" + 
+		"2: Schiffe versenken\n" + 
+		"3: Zahlen raten\n" + 
+		"4: Schere Stein Papier");
 
 		input_game = sc.nextInt();
 
@@ -25,7 +29,10 @@ public class SpieleMain {
 
 		}
 		if (input_game == 3) {
-			
+			Zahlenraten.main(args);
+		}
+		if(input_game == 4) {
+			SchereSteinPapier.main(args);
 		}
 
 	}

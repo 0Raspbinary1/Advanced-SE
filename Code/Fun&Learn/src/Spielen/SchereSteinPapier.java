@@ -10,10 +10,10 @@ public class SchereSteinPapier {
 		System.out.println("Willkommen bei Schere Stein Papier!\n"
 				+ "Wir spielen Best-Of-Three, viel Glueck!\n");
 		for(int i = 0; i < 20;i++) {
-			start();
+			start(args);
 		}
 	}
-	public static void start() {
+	public static void start(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String userInput;
 		boolean aktiv = true;
@@ -33,15 +33,22 @@ public class SchereSteinPapier {
 				System.out.println("" + counterRounds + ". Runde: Computer hat sich entschieden.\n"
 						+ "Was nimmst du? Eingabe in Kleinbuchstaben:\n");
 				userInput = sc.next();
+				System.out.println("user: " + userInput + "\n"
+						+ "Computer: " + randChoice);
 				int erg = compare(randChoice, userInput);
 				if(erg != 1) {
 					generalWinCounter++;
 				}
 				if(erg == 0) {
-					pcPoints++;
+					pcPoints++;					
+//					System.out.println("verloren gegen " + randChoice);
 				}
 				if(erg == 2) {
 					userPoints++;
+//					System.out.println("gewonnen gegen " + randChoice);
+				}
+				if(erg == 1) {
+//					System.out.println("unentschieden mit " + randChoice);
 				}
 			}
 			if(userPoints > pcPoints) {
@@ -49,14 +56,24 @@ public class SchereSteinPapier {
 			} else {
 				System.out.println("Schade, vielleicht beim naechsten Spiel!");
 			}
-			System.out.println("willst du noch mal spielen?\n"
+			System.out.println("Willst du noch mal spielen?\n"
 					+ "0: nein\n"
 					+ "1: ja");
-			int inputPlayingAgain = sc.nextInt();
-			if(inputPlayingAgain == 0) {
-				aktiv = false;
-				//TODO Spielemenu
+			boolean input = true;
+			while(input) {	
+				input = false;
+				int inputPlayAgain = sc.nextInt();
+				if(inputPlayAgain == 0) {
+					aktiv = false;
+					SpieleMain.main(args);
+				}else if (inputPlayAgain == 1) {
+					aktiv = true;
+				} else {
+					input = true;
+					System.out.println("falsche Eingabe");
+				}
 			}
+			System.out.println();
 		}
 	}
 	
@@ -72,31 +89,31 @@ public class SchereSteinPapier {
 		}
 		if(randChoice.equals("schere")) {
 			if(userInput.equals("stein")) {
-				System.out.println("gewonnen\n");
+				System.out.println("gewonnen gegen Schere\n");
 				return 2;
 			}
 			if(userInput.equals("papier")) {
-				System.out.println("verloren\n");
+				System.out.println("verloren gegen Schere\n");
 				return 0;
 			}
 		}
 		if(randChoice.equals("stein")) {
 			if(userInput.equals("schere")) {
-				System.out.println("verloren\n");
+				System.out.println("verloren gegen Stein\n");
 				return 0;
 			}
 			if(userInput.equals("papier")) {
-				System.out.println("gewonnen\n");
+				System.out.println("gewonnen gegen Stein\n");
 				return 2;
 			}
 		}
 		if(randChoice.equals("papier")) {
 			if(userInput.equals("schere")) {
-				System.out.println("gewonnen\n");
+				System.out.println("gewonnen gegen Papier\n");
 				return 2;
 			}
 			if(userInput.equals("stein")) {
-				System.out.println("verloren\n");
+				System.out.println("verloren gegen Papier\n");
 				return 0;
 			}
 		}

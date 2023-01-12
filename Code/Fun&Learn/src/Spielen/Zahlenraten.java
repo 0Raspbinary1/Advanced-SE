@@ -10,16 +10,19 @@ public class Zahlenraten {
 		int input_range_down = 0;
 		int input_range_up = 0;
 
-		System.out.println("Willkommen beim Zahlenraten!\n\n");
-		System.out.println("Gib dein Zahlenraum an:\n" + "mindest Zahl: ");
+		System.out.println("\nWillkommen beim Zahlenraten!\n");
+		System.out.println("Gib dein Zahlenraum an:\n");
 
+		System.out.println("Minimum Zahl: ");
 		input_range_down = sc.nextInt();
+		
+		System.out.println("Maximum Zahl: ");
 		input_range_up = sc.nextInt();
-		start(input_range_down, input_range_up);
+		start(input_range_down, input_range_up, args);
 
 	}
 
-	public static void start(int min, int max) {
+	public static void start(int min, int max, String[] args) {
 		Scanner sc = new Scanner(System.in);
 		boolean aktiv = true;
 
@@ -29,9 +32,10 @@ public class Zahlenraten {
 			int randInt = min + (int) (Math.random() * ((max - min) + 1));
 
 			int eingabe = 0;
-			int versuche = 1;
+			int versuche = 0;
 
 			while (true) {
+				versuche++;
 				System.out.println("Bitte geben Sie eine Zahl ein: ");
 				eingabe = sc.nextInt();
 
@@ -55,6 +59,7 @@ public class Zahlenraten {
 
 			if (eingabe == 2) {
 				aktiv = false;
+				SpieleMain.main(args);
 			}
 		}
 
