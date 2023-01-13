@@ -1,5 +1,7 @@
 package test.java.convert;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.HashMap;
 
 import org.junit.Before;
@@ -19,6 +21,11 @@ public class TestAreaConversion {
 	
 	@Test
 	public void testQmToQkm() {
+		this.conv.setSystemIn(null);
+		this.conv.setUnit("qm");
+		this.conv.setInputNumber(1);
+		this.conv.setGoalUnit("qkm");
 		this.conv.perform(new String[0]);
+		assertEquals(this.conv.getOutput(), 0);
 	}
 }

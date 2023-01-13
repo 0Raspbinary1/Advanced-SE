@@ -29,7 +29,6 @@ public class TestEntrace {
 	@Test
 	public void testHandleInputFalseInput() {
 		this.input = "test";
-		System.out.println("test");
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
 		this.response = HandleInput.getInput(this.map, this.inputStream, false);
 		assertEquals(response, "false input");
