@@ -1,6 +1,7 @@
 package main.java.alles;
 import java.util.HashMap;
 
+import main.java.Quiz.QuizMain;
 import main.java.convert.ConversionStartSite;
 import main.java.notes.NotesStartSite;
 import main.java.play.Main;
@@ -41,6 +42,7 @@ public class FunLearn {
 			Main.main(args);
 			break;
 		case "Quiz":
+			QuizMain.main(args);
 			break;
 		case "Notizen":
 			NotesStartSite.main(args);
