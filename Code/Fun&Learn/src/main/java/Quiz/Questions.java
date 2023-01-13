@@ -1,4 +1,4 @@
-package Quiz;
+package main.java.Quiz;
 
 public interface Questions {
 

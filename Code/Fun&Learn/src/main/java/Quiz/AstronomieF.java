@@ -1,4 +1,4 @@
-package Quiz;
+package main.java.Quiz;
 
 public class AstronomieF implements Questions{
 
@@ -33,7 +33,7 @@ public class AstronomieF implements Questions{
 		this.as[2][3] = "13,7 Mrd. Jahre";
 		this.as[2][4] = "2,1 Bn. Jahre";
 		this.as[2][5] = "c";
-		this.as[3][0] = "Wie lautet die Reihenfolge der Planeten von der Sonne nach außen?";
+		this.as[3][0] = "Wie lautet die Reihenfolge der Planeten von der Sonne nach auï¿½en?";
 		this.as[3][1] = "Mars, Venus, Erde, Merkur, Jupiter, Saturn, Neptun, Uranus";
 		this.as[3][2] = "Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun";
 		this.as[3][3] = "Jupiter, Neptun, Mars, Venus, Erde, Merkur, Uranus, Saturn";
@@ -45,7 +45,7 @@ public class AstronomieF implements Questions{
 		this.as[4][3] = "730 Millionen Kilometer";
 		this.as[4][4] = "2,3 Milliarden Kilometer";
 		this.as[4][5] = "b";
-		this.as[5][0] = "Und wie viel Zeit benötigt Licht für die Reise von der Sonne zur Erde?";
+		this.as[5][0] = "Und wie viel Zeit benï¿½tigt Licht fï¿½r die Reise von der Sonne zur Erde?";
 		this.as[5][1] = "1 Minute und 7 Sekunden";
 		this.as[5][2] = "8 Minuten und 19 Sekunden";
 		this.as[5][3] = "39 Minuten und 8 Sekunden";
