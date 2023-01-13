@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-import main.java.alles.HandleInput;
+import main.java.all.HandleInput;
 
 public class Conversion {
 	
