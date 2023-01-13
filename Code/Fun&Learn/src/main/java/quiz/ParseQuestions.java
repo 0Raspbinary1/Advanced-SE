@@ -7,10 +7,10 @@ public class ParseQuestions {
 	
 	public ParseQuestions(String typ) {
 		switch(typ) {
-			case "de":
+			case "Deutschland":
 				this.questions = new DeutschlandF();
 				break;
-			case "as":
+			case "Astronomie":
 				this.questions = new AstronomieF();
 		}
 		parseQuestions();

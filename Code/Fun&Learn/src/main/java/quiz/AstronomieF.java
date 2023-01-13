@@ -21,7 +21,7 @@ public class AstronomieF implements Questions{
 		this.as[0][3] = "Komet";
 		this.as[0][4] = "Meteor";
 		this.as[0][5] = "a";
-		this.as[1][0] = "Wie viele Tage dauert es, bis Merkur die Sonne umkreist? ";
+		this.as[1][0] = "Wie viele Tage dauert es, bis der Merkur die Sonne umkreist? ";
 		this.as[1][1] = "88";
 		this.as[1][2] = "11";
 		this.as[1][3] = "33";
@@ -51,25 +51,6 @@ public class AstronomieF implements Questions{
 		this.as[5][3] = "39 Minuten und 8 Sekunden";
 		this.as[5][4] = "2 Stunden und 47 Minuten";
 		this.as[5][5] = "b";
-		this.as[6][0] = "";
-		this.as[6][1] = "";
-		this.as[6][2] = "";
-		this.as[6][3] = "";
-		this.as[6][4] = "";
-		this.as[6][5] = "";
-		this.as[7][0] = "";
-		this.as[7][1] = "";
-		this.as[7][2] = "";
-		this.as[7][3] = "";
-		this.as[7][4] = "";
-		this.as[7][5] = "";
-		this.as[8][0] = "";
-		this.as[8][1] = "";
-		this.as[8][2] = "";
-		this.as[8][3] = "";
-		this.as[8][4] = "";
-		this.as[8][5] = "";
-
 	}
 
 }

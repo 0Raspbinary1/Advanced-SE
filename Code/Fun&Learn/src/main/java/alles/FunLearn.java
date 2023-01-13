@@ -60,5 +60,4 @@ public class FunLearn {
 		map.put("4", "Umrechnen");
 		map.put("X", "Exit");
 	}
-
 }

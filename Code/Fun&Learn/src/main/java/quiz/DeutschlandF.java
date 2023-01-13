@@ -1,10 +1,8 @@
 package main.java.quiz;
 
 public class DeutschlandF implements Questions {
-
-//	public String[][] de = new String [20][];
-	//de[0][0] = "";
 	
+	@Override
 	public String[][] getArray() {
 		return de;
 	}
