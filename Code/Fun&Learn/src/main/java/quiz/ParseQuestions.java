@@ -1,4 +1,4 @@
-package main.java.Quiz;
+package main.java.quiz;
 
 public class ParseQuestions {
 	
@@ -10,7 +10,7 @@ public class ParseQuestions {
 			case "de":
 				this.questions = new DeutschlandF();
 				break;
-			case "ar":
+			case "as":
 				this.questions = new AstronomieF();
 		}
 		parseQuestions();

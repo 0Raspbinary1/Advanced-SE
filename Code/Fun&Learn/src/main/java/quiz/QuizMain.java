@@ -1,4 +1,4 @@
-package main.java.Quiz;
+package main.java.quiz;
 
 import java.util.Scanner;
 
@@ -9,9 +9,9 @@ public class QuizMain {
 
 		System.out.println("Willkommen im Quizinatooorr\n\n"
 				+ "Die Fragen sind mithilfe der Buchstaben zu beantworten!\n\n"
-				+ "Welche Themengebiet m�chstest du spielen?\n\n" 
+				+ "Welches Themengebiet moechtest du spielen?\n\n" 
 				+ "de: Deutschland-Quiz\n" 
-				+ "ar: Astronomie-Quiz");
+				+ "as: Astronomie-Quiz");
 
 		String eingabe = sc.nextLine();
 		startQuiz(eingabe, args);
