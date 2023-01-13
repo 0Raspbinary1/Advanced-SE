@@ -16,17 +16,17 @@ public class DeutschlandF implements Questions {
 	}
 	
 	public void initQ() {
-		this.de = new String [20][6];
+		this.de = new String [9][6];
 
-		this.de[0][0] = "Wie viele Bundesländer hat Deutschland?";
+		this.de[0][0] = "Wie viele Bundeslï¿½nder hat Deutschland?";
 		this.de[0][1] = "14";
 		this.de[0][2] = "15";
 		this.de[0][3] = "16";
 		this.de[0][4] = "17";
 		this.de[0][5] = "c";
-		this.de[1][0] = "Wie heißt der/die aktuelle Bundeskanzler/-in? (Stand 2022)";
+		this.de[1][0] = "Wie heiï¿½t der/die aktuelle Bundeskanzler/-in? (Stand 2022)";
 		this.de[1][1] = "Jennifer Zaminer";
-		this.de[1][2] = "Jürgen von der Lippe";
+		this.de[1][2] = "Jï¿½rgen von der Lippe";
 		this.de[1][3] = "Olaf Scholz";
 		this.de[1][4] = "Angela Merkel";
 		this.de[1][5] = "c";
@@ -36,43 +36,42 @@ public class DeutschlandF implements Questions {
 		this.de[2][3] = "88 Mio.";
 		this.de[2][4] = "84 Mio.";
 		this.de[2][5] = "d";
-		this.de[3][0] = "Wie heißt die Hauptstadt von Deutschland?";
+		this.de[3][0] = "Wie heiï¿½t die Hauptstadt von Deutschland?";
 		this.de[3][1] = "Berlin";
 		this.de[3][2] = "Karlsruhe";
 		this.de[3][3] = "Frankfurt";
-		this.de[3][4] = "München";
+		this.de[3][4] = "Mï¿½nchen";
 		this.de[3][5] = "a";
-		this.de[4][0] = "Welchen Zusatz trägt das Land Sachsen im Namen?";
-		this.de[4][1] = "Königreich";
+		this.de[4][0] = "Welchen Zusatz trï¿½gt das Land Sachsen im Namen?";
+		this.de[4][1] = "Kï¿½nigreich";
 		this.de[4][2] = "Keinen";
 		this.de[4][3] = "Republik";
 		this.de[4][4] = "Freistaat";
 		this.de[4][5] = "d";
-		this.de[5][0] = "Wie viele Touristen komme jährlich nach Berlin?";
+		this.de[5][0] = "Wie viele Touristen komme jï¿½hrlich nach Berlin?";
 		this.de[5][1] = "4 Mio.";
 		this.de[5][2] = "14 Mio.";
 		this.de[5][3] = "8,5 Mio.";
 		this.de[5][4] = "16 Mio.";
 		this.de[5][5] = "b";
-		this.de[6][0] = "Welche Flüsse fließen am Deutschen Eck in Rheinland-Pfalz zusammen?";
+		this.de[6][0] = "Welche Flï¿½sse flieï¿½en am Deutschen Eck in Rheinland-Pfalz zusammen?";
 		this.de[6][1] = "Rhein und Lahn";
 		this.de[6][2] = "Rhein und Mosel";
 		this.de[6][3] = "Neckar und Donau";
 		this.de[6][4] = "Neckar und Rhein";
 		this.de[6][5] = "b";
-		this.de[7][0] = "Wie viel Ladung geht im Hamburger Hafen im Jahr über die Kaikanten?";
+		this.de[7][0] = "Wie viel Ladung geht im Hamburger Hafen im Jahr ï¿½ber die Kaikanten?";
 		this.de[7][1] = "136,6 Mio. Tonnen";
 		this.de[7][2] = "20 Mio. Tonnen";
 		this.de[7][3] = "176 Mio. Tonnen";
 		this.de[7][4] = "4 Mio. Tonnen";
 		this.de[7][5] = "a";
 		this.de[8][0] = "Welche internationale Organisation hat ihren Sitz in Hessen?";
-		this.de[8][1] = "Europäische Atomgemeinschaft";
-		this.de[8][2] = "UN-Flüchtlingshilfswerk";
-		this.de[8][3] = "Europäische Weltraumorganisation";
-		this.de[8][4] = "Europäische Zentralbank";
+		this.de[8][1] = "Europï¿½ische Atomgemeinschaft";
+		this.de[8][2] = "UN-Flï¿½chtlingshilfswerk";
+		this.de[8][3] = "Europï¿½ische Weltraumorganisation";
+		this.de[8][4] = "Europï¿½ische Zentralbank";
 		this.de[8][5] = "d";
-	
 	}
 	
 }

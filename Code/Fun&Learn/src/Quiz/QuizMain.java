@@ -9,17 +9,16 @@ public class QuizMain {
 
 		System.out.println("Willkommen im Quizinatooorr\n\n"
 				+ "Die Fragen sind mithilfe der Buchstaben zu beantworten!\n\n"
-				+ "Welche Themengebiet möchstest du spielen?\n\n" 
+				+ "Welche Themengebiet mï¿½chstest du spielen?\n\n" 
 				+ "de: Deutschland-Quiz\n" 
 				+ "ar: Astronomie-Quiz");
 
 		String eingabe = sc.nextLine();
-		startQuiz(eingabe);
+		startQuiz(eingabe, args);
 		sc.close();
 	}
 
-	public static void startQuiz(String eingabe) {
-		Quiz quiz = new Quiz(eingabe);
-		quiz.perform();
+	public static void startQuiz(String eingabe, String [] args) {
+		new Quiz(eingabe).perform(args);
 	}
 }

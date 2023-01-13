@@ -11,7 +11,7 @@ public class ParseQuestions {
 				this.questions = new DeutschlandF();
 				break;
 			case "ar":
-				questions = new AstronomieF();
+				this.questions = new AstronomieF();
 		}
 		parseQuestions();
 	}
@@ -20,12 +20,12 @@ public class ParseQuestions {
 		String[][] twoDimQuestionArray = this.questions.getArray();
 		this.questionArray = new Question[twoDimQuestionArray.length];
 		for (int i = 0; i < twoDimQuestionArray.length; i++) {
-			questionArray[i] = new Question(twoDimQuestionArray[i][0],getAnswers(i, twoDimQuestionArray), twoDimQuestionArray[i][5]);
+			this.questionArray[i] = new Question(twoDimQuestionArray[i][0],getAnswers(i, twoDimQuestionArray), twoDimQuestionArray[i][5]);
 		}
 	}
 
 	public Question[] getQuestionArray() {
-		return questionArray;
+		return this.questionArray;
 	}
 
 	private String[] getAnswers(int index, String[][] twoDimQuestionArray) {

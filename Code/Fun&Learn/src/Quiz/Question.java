@@ -6,7 +6,7 @@ public class Question {
 //	AstronomieF as = null;
 	
 	private String question;
-	private String [] anwsers;
+	private String [] answers;
 	private String rightAnswer;
 	
 	public String getQuestion() {
@@ -14,7 +14,7 @@ public class Question {
 	}
 
 	public String[] getAnwsers() {
-		return anwsers;
+		return answers;
 	}
 
 	public String getRightAnswer() {
@@ -24,7 +24,7 @@ public class Question {
 	
 	public Question(String question, String[] answers, String rightAnswer) {
 		this.question = question;
-		this.anwsers = answers;
+		this.answers = answers;
 		this.rightAnswer = rightAnswer;
 	}
 	

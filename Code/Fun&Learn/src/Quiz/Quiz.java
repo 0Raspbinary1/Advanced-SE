@@ -12,7 +12,7 @@ public class Quiz {
 		this.questions = parse.getQuestionArray();
 	}
 
-	public void perform() {
+	public void perform(String [] args) {
 		Scanner sc = new Scanner(System.in);
 		for(int i = 0; i <this.questions.length;i++) {
 			System.out.println(this.questions[i].getQuestion());
@@ -22,6 +22,7 @@ public class Quiz {
 		}
 		System.out.println("Quiz zu Ende, "+ this.score +" Punkte erreicht");
 		sc.close();
+		QuizMain.main(args);
 	}
 
 	private void validateAnswer(String guess, String rightAnswer) {
@@ -31,13 +32,13 @@ public class Quiz {
 		}else {
 			System.out.println("Falsche Antwort");
 		}
-		System.out.println("Deine aktuelle Punktzahl beträgt: "+ this.score +"\n\n");
+		System.out.println("Deine aktuelle Punktzahl betraegt: "+ this.score +"\n\n");
 	}
 
 	private void printAnswers(String[] answers) {
 		char index = 'a';
 		for(int i =0; i< answers.length; i++) {
-			System.out.println(index++ + " : "+ answers[i]);
+			System.out.println(index++ + ": "+ answers[i]);
 		}
 	}
 
