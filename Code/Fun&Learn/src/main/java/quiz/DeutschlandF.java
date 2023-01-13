@@ -23,7 +23,7 @@ public class DeutschlandF implements Questions {
 		this.de[0][4] = "17";
 		this.de[0][5] = "c";
 		this.de[1][0] = "Wie heisst der/die aktuelle Bundeskanzler/-in? (Stand 2022)";
-		this.de[1][1] = "Jennifer Zaminer";
+		this.de[1][1] = "Philipp Amthor";
 		this.de[1][2] = "Juergen von der Lippe";
 		this.de[1][3] = "Olaf Scholz";
 		this.de[1][4] = "Angela Merkel";

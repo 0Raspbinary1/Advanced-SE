@@ -21,7 +21,7 @@ public class AstronomieF implements Questions{
 		this.as[0][3] = "Komet";
 		this.as[0][4] = "Meteor";
 		this.as[0][5] = "a";
-		this.as[1][0] = "Wie viele Tage dauert es, bis der Merkur die Sonne umkreist? ";
+		this.as[1][0] = "Wie viele Tage dauert es, bis der Merkur die Sonne einmal umkreist hat? ";
 		this.as[1][1] = "88";
 		this.as[1][2] = "11";
 		this.as[1][3] = "33";
