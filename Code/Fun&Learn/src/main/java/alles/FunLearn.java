@@ -1,17 +1,17 @@
 package main.java.alles;
 import java.util.HashMap;
 
-import main.java.Quiz.QuizMain;
 import main.java.convert.ConversionStartSite;
 import main.java.notes.NotesStartSite;
 import main.java.play.Main;
+import main.java.quiz.QuizMain;
 
 
 public class FunLearn {
 	
 	private static HashMap<String, String> map = new HashMap<>();
 	private static String welcome = "Hallo und Herzlich Willkommen bei Fun&Learn!\n"
-			+ "Du findest unten verschieden Modi, die du mithilfe von Zahlen auswaehlen kannst\n\n\n"
+			+ "Du findest unten verschiedene Modi, die du mithilfe von Zahlen auswaehlen kannst\n\n\n"
 			+ "Modi auswaehlen: ";
 	private static String modi = " 1: Spielen\n 2: Quiz\n 3: Notizen\n 4: Umrechnen\n X: Programm beenden";
 	
@@ -60,5 +60,4 @@ public class FunLearn {
 		map.put("4", "Umrechnen");
 		map.put("X", "Exit");
 	}
-
 }

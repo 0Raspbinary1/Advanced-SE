@@ -1,28 +1,34 @@
-package main.java.Quiz;
+package main.java.quiz;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+
+import main.java.alles.HandleExit;
+import main.java.alles.HandleInput;
 
 public class Quiz {
 
+	private HashMap<String, String> map = new HashMap<>();
+	private HashMap<String, String> charMap = new HashMap<>();
 	private int score = 0;
 	private Question [] questions;
+
 	
 	public Quiz(String eingabe) {
-		ParseQuestions parse = new ParseQuestions(eingabe);
-		this.questions = parse.getQuestionArray();
+		this.setCharMap();
+		this.questions = new ParseQuestions(eingabe).getQuestionArray();
 	}
 
 	public void perform(String [] args) {
-		Scanner sc = new Scanner(System.in);
 		for(int i = 0; i <this.questions.length;i++) {
 			System.out.println(this.questions[i].getQuestion());
 			printAnswers(this.questions[i].getAnwsers());
-			String guess = sc.nextLine();
+			String guess = HandleInput.getInput(this.charMap, System.in);
 			validateAnswer(guess, this.questions[i].getRightAnswer());
 		}
-		System.out.println("Quiz zu Ende, "+ this.score +" Punkte erreicht");
-		sc.close();
-		QuizMain.main(args);
+		System.out.println("Quiz zu Ende. "+ this.score +" von moeglichen " + questions.length + " Punkten erreicht\n\n");
+		QuizMain.main(args);;
 	}
 
 	private void validateAnswer(String guess, String rightAnswer) {
@@ -41,5 +47,11 @@ public class Quiz {
 			System.out.println(index++ + ": "+ answers[i]);
 		}
 	}
-
+	
+	private void setCharMap() {
+		charMap.put("A", "a");
+		charMap.put("B", "b");
+		charMap.put("C", "c");
+		charMap.put("D", "d");
+	}
 }
