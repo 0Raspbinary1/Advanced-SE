@@ -2,8 +2,8 @@ package main.java.notes;
 
 import java.util.HashMap;
 
-import main.java.alles.HandleExit;
-import main.java.alles.HandleInput;
+import main.java.all.HandleExit;
+import main.java.all.HandleInput;
 
 
 public class NotesStartSite {

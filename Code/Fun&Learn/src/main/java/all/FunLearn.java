@@ -1,4 +1,4 @@
-package main.java.alles;
+package main.java.all;
 import java.util.HashMap;
 
 import main.java.convert.ConversionStartSite;

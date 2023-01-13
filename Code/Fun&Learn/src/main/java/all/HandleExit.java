@@ -1,4 +1,4 @@
-package main.java.alles;
+package main.java.all;
 
 public class HandleExit {
 

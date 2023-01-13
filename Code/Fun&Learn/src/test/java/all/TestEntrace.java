@@ -9,7 +9,7 @@ import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.alles.HandleInput;
+import main.java.all.HandleInput;
 
 public class TestEntrace {
 	 private InputStream inputStream;
