@@ -1,4 +1,4 @@
-package Spielen;
+package main.java.spielen;
 
 import java.util.Random;
 import java.util.Scanner;
