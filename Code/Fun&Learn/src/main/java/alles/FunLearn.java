@@ -38,7 +38,7 @@ public class FunLearn {
 	private static void openMode(String type, String[] args) {
 		System.out.println("Sie haben " + type +" ausgewaehlt!");
 		switch (type) {
-		case "Game":
+		case "Spielen":
 			Main.main(args);
 			break;
 		case "Quiz":
