@@ -10,7 +10,6 @@ import org.junit.Test;
 import main.java.convert.Conversion;
 
 public class TestAreaConversion {
-//	private HashMap<String, String> map = new HashMap();
 	private Conversion conv;
 	
 	@Before
