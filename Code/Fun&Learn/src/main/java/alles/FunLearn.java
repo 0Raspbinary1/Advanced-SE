@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 import main.java.convert.ConversionStartSite;
 import main.java.notes.NotesStartSite;
-import main.java.play.Main;
+import main.java.play.SpieleMain;
 import main.java.quiz.QuizMain;
 
 
@@ -39,7 +39,7 @@ public class FunLearn {
 		System.out.println("Sie haben " + type +" ausgewaehlt!");
 		switch (type) {
 		case "Game":
-			Main.main(args);
+			SpieleMain.main(args);
 			break;
 		case "Quiz":
 			QuizMain.main(args);
