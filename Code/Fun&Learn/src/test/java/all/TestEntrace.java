@@ -1,6 +1,7 @@
 package test.java.all;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -15,7 +16,7 @@ public class TestEntrace {
 	 private InputStream inputStream;
 	 private String input;
 	 private String response;
-	 private HashMap<String, String> map = new HashMap();
+	 private HashMap<String, String> map = new HashMap<String, String>();
 	 
 	 @Before
 	 public void setMap() {

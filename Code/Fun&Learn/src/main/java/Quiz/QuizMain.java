@@ -1,7 +1,6 @@
 package main.java.Quiz;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;

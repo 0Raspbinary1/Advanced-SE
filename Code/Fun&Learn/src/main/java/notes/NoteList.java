@@ -8,12 +8,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class NoteList {
 	private String dir = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "Notes by Fun&Learn";
-	private  Map<String, String> map = new HashMap<>(); //key: filename, value: text in file
+	private  HashMap<String, String> notes = new HashMap<>(); //key: filename, value: text in file
 	
 	public String getDir() {
 		return this.dir;
@@ -21,7 +20,7 @@ public class NoteList {
 
 	public  HashMap<String, String> getMap() {
 		createDirIfNotExists();
-		HashMap<String, String> notes = new HashMap<>();
+		notes = new HashMap<>();
 		try {
 			for(String fileName : listFilesUsingDirectoryStream()) {
 				String value = readFile(fileName);

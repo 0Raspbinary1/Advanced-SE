@@ -1,7 +1,5 @@
 package main.java.Quiz;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class Question {
 

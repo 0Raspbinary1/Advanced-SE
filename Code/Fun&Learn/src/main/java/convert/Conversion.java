@@ -103,7 +103,7 @@ public class Conversion {
 	}
 
 	private HashMap<String, String> parseMap() {
-		HashMap stringMap = new HashMap();
+		HashMap<String, String> stringMap = new HashMap<String, String>();
 		Set<String> keys = this.map.keySet();
  		for (String key:keys) {
  			stringMap.put(key, this.map.get(key).toString());
