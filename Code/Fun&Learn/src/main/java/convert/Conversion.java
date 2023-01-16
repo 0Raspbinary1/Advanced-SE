@@ -16,7 +16,7 @@ public class Conversion {
 	private Scanner sc;
 	private Map<String, Number> map = new HashMap<>();
 	@SuppressWarnings("serial")
-	private List<String> defaultUnits = new ArrayList<>() {{add("kg"); add("m"); add("celsius"); add("qm"); add("h");}};
+	private List<String> defaultUnits = new ArrayList<>() {{add("G"); add("M"); add("CELSIUS"); add("QM"); add("H");}};
 	private String unit;
 	private double inputNumber;
 	private String goalUnit;
@@ -53,7 +53,7 @@ public class Conversion {
 	private double convertTemperture() {
 		if(this.defaultUnits.contains(this.unit)) {
 			return Temperature.convertFromCelsius(this.inputNumber, this.goalUnit);
-		}else if(this.unit.equals("kelvin")) {
+		}else if(this.unit.equals("KELVIN")) {
 			return Temperature.convertFromKelvin(this.inputNumber, this.goalUnit);
 		}else{
 			return Temperature.convertFromFahrenheit(this.inputNumber, this.goalUnit);
@@ -66,11 +66,11 @@ public class Conversion {
 			return this.inputNumber / (double) this.map.get(goalUnit);
 		}else {
 			help = this.inputNumber * (double) this.map.get(unit);
-			if(this.defaultUnits.contains(this.goalUnit)) {
-				return help;
-			}
+//			if(this.defaultUnits.contains(this.goalUnit)) {
+//				return help;
+//			}
+			return help / (double) this.map.get(goalUnit);
 		}
-		return help / (double) this.map.get(goalUnit);
 	}
 	
 	private void askForInputs() {
@@ -121,8 +121,8 @@ public class Conversion {
 
 	private Map<String, Number> setMap(String type) {
 		switch (type) {
-			case "Weighting":
-				return Weighting.weights;
+			case "Weigthing":
+				return Weigthing.weigths;
 			case "Length": 
 				return Length.lenghts;
 			case "Temperature":

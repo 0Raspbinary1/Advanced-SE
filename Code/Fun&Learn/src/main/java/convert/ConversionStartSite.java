@@ -23,7 +23,7 @@ public class ConversionStartSite {
 	}
 	
 	private static void setMap() {
-		map.put("1", "Weighting");
+		map.put("1", "Weigthing");
 		map.put("2", "Length");
 		map.put("3", "Temperature");
 		map.put("4", "Area");
