@@ -19,7 +19,7 @@ public class NotesStartSite {
 		if(input.equals("Start") || input.equals("Exit")) {
 			HandleExit.perform(input, args);
 		}else {
-			new HandleNote(input, args, System.in);
+			new HandleNote(System.in).perform(input, args);
 		}
 	}
 	private static void setMap() {

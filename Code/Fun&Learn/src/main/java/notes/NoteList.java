@@ -11,11 +11,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class NoteList {
-	private String dir = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "Notes by Fun&Learn";
+	private String dir;
 	private  HashMap<String, String> notes = new HashMap<>(); //key: filename, value: text in file
 	
 	public String getDir() {
 		return this.dir;
+	}
+
+	public void setDir(String dir) {
+		this.dir = dir;
 	}
 
 	public  HashMap<String, String> getMap() {

@@ -1,5 +1,6 @@
 package main.java.notes;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,23 +25,38 @@ public class HandleNote {
 	private HashMap<String, String> optionMap = new HashMap<>();
 	private String text = "Option auswaehlen\n A: Anzeigen\n L: Loeschen\n N: neue Notiz erstellen\n S: zum Start zurueck\n X: Programm beenden";
 	private InputStream systemIn;
+	private NoteList noteList = new NoteList();
+	private String dir = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "Notes by Fun&Learn";
 	
-	public HandleNote(String type, String[] args, InputStream systemIn) {
+	public HandleNote(InputStream systemIn) {
 		this.systemIn = systemIn;
-		initiateMaps();
+		this.inititateOptionMap();
+	}
+	
+	public void setNoteList(String dir) {
+		this.noteList.setDir(dir);
+	}
+	
+	public void perform(String type, String [] args) {
+		this.setNoteList(this.dir);
+		this.fileMap = this.noteList.getMap();
 		switch(type) {
-			case "list":
-				list(args);
-				break;
-			case "new":
-				createNote();
-				break;
+		case "list":
+			list(args);
+			break;
+		case "new":
+			createNote();
+			break;
 		}
 		NotesStartSite.main(args);
 	}
 
+	public void setSystemIn(InputStream systemIn) {
+		this.systemIn = systemIn;
+	}
+
 	private void delete() {
-		String pathString = new NoteList().getDir() + File.separator + this.fileName;
+		String pathString = this.noteList.getDir() + File.separator + this.fileName;
 		Path path = Paths.get(pathString);
 		try {
 			if(Files.deleteIfExists(path)) {
@@ -56,21 +72,22 @@ public class HandleNote {
 //	}
 	
 	private void createNote() {
-		createFile();
-		writeInFile();
+		createFile(getTitle());
+		writeInFile(getNoteText());
 	}
 	
-	private void createFile() {
-		System.out.println("Bitte den Titel fuer die Notiz eingeben");
-		String title = getTitle() + ".txt";
-		File file = new File(new NoteList().getDir() + File.separator + title);
+	
+	public void createFile(String filename) {
+		File file = new File(this.noteList.getDir() + File.separator + filename);
 		try {
 			if(file.createNewFile()) {
-				this.fileName = title;
+				this.fileName = filename;
 				System.out.println("Notizdatei \"" + this.fileName + "\" erstellt");
 			}else {
 				System.out.println("Eine Notiz mit diesem Namen existiert bereits ");
-				createFile();
+				if(this.systemIn instanceof BufferedInputStream) {
+					createFile(getTitle());
+				}
 			}
 		}catch (IOException e) {
 			e.printStackTrace();
@@ -80,19 +97,22 @@ public class HandleNote {
 	private String getTitle() {
 		Scanner sc = new Scanner(this.systemIn);
 		String title = sc.nextLine();
-		return title;
+		return title +".txt";
 	}
 
-	private void writeInFile() {
-		String noteText = getNoteText();
+	public void writeInFile(String noteText) {
 		try {
-			FileWriter writer = new FileWriter(new NoteList().getDir()+ File.separator + this.fileName);
+			FileWriter writer = new FileWriter(this.noteList.getDir()+ File.separator + this.fileName);
 			writer.write(noteText);
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public NoteList getNoteList() {
+		return noteList;
 	}
 
 	private String getNoteText() {
@@ -109,7 +129,7 @@ public class HandleNote {
 	}
 
 	private void show() {
-		String data = new NoteList().readFile(fileName);
+		String data = this.noteList.readFile(fileName);
 		System.out.println("Die Notiz \"" + fileName + "\" beinhaltet: \n" );
 		System.out.println("---------------------------- \n\n\n" + data + " \n\n\n---------------------------- \n");
 	}
@@ -123,10 +143,10 @@ public class HandleNote {
 		}
 		chooseNote(args);
 	}
-	private void initiateMaps() {
-		this.fileMap = new NoteList().getMap();
-		inititateOptionMap();
-	}
+//	private void initiateMaps() {
+//		
+//		inititateOptionMap();
+//	}
 	
 	private void inititateOptionMap() {
 		this.optionMap.put("A", "show");
