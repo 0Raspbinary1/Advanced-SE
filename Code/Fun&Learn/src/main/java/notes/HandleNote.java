@@ -37,12 +37,17 @@ public class HandleNote {
 		this.noteList.setDir(dir);
 	}
 	
+	public void setFileMap(Map<String, String> fileMap) {
+		this.fileMap = fileMap;
+	}
+
 	public void perform(String type, String [] args) {
 		this.setNoteList(this.dir);
 		this.fileMap = this.noteList.getMap();
 		switch(type) {
 		case "list":
-			list(args);
+			list();
+			chooseNote(args);
 			break;
 		case "new":
 			createNote();
@@ -82,10 +87,12 @@ public class HandleNote {
 		try {
 			if(file.createNewFile()) {
 				this.fileName = filename;
-				System.out.println("Notizdatei \"" + this.fileName + "\" erstellt");
-			}else {
-				System.out.println("Eine Notiz mit diesem Namen existiert bereits ");
 				if(this.systemIn instanceof BufferedInputStream) {
+					System.out.println("Notizdatei \"" + this.fileName + "\" erstellt");
+				}
+			}else {
+				if(this.systemIn instanceof BufferedInputStream) {
+					System.out.println("Eine Notiz mit diesem Namen existiert bereits ");
 					createFile(getTitle());
 				}
 			}
@@ -134,15 +141,23 @@ public class HandleNote {
 		System.out.println("---------------------------- \n\n\n" + data + " \n\n\n---------------------------- \n");
 	}
 	
-	private void list(String [] args) {
+	private void list() {
 		System.out.println("Eine Liste der erstellten Notizen: " );
+		System.out.println(getListAsString());
+		
+	}
+	public String getListAsString() {
+		StringBuilder list = new StringBuilder();
 		int index = 0;
 		for (String name : fileMap.keySet()) {
 			numberMap.put(""+ index, name);
-			System.out.println(index++ + ": " + name);
+//			System.out.println(index++ + ": " + name + "\n");
+			list.append(index++ + ": " + name + "\n");
 		}
-		chooseNote(args);
+		System.out.println(list.toString());
+		return list.toString();
 	}
+
 //	private void initiateMaps() {
 //		
 //		inititateOptionMap();
@@ -180,7 +195,8 @@ public class HandleNote {
 			createNote();
 			break;
 		case "list":
-			list(args);
+			list();
+			chooseNote(args);
 			break;
 		}
 	}
