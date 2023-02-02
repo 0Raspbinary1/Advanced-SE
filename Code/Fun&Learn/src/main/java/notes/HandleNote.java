@@ -60,11 +60,11 @@ public class HandleNote {
 		this.systemIn = systemIn;
 	}
 
-	private void delete() {
+	public void delete() {
 		String pathString = this.noteList.getDir() + File.separator + this.fileName;
 		Path path = Paths.get(pathString);
 		try {
-			if(Files.deleteIfExists(path)) {
+			if(Files.deleteIfExists(path)&& this.systemIn instanceof BufferedInputStream) {
 				System.out.println("Notiz \"" + this.fileName + "\" geloescht");
 			}
 		} catch (IOException e) {
@@ -76,6 +76,10 @@ public class HandleNote {
 //		
 //	}
 	
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
 	private void createNote() {
 		createFile(getTitle());
 		writeInFile(getNoteText());
@@ -154,7 +158,7 @@ public class HandleNote {
 //			System.out.println(index++ + ": " + name + "\n");
 			list.append(index++ + ": " + name + "\n");
 		}
-		System.out.println(list.toString());
+//		System.out.println(list.toString());
 		return list.toString();
 	}
 

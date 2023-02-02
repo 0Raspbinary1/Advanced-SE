@@ -8,6 +8,7 @@
 
 	<properties>
 		<java.version>18</java.version>
+		<java.compiler>14</java.compiler>
 	</properties>
 
 	<build>
