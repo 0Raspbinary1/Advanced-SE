@@ -83,23 +83,23 @@ public class HandleNote {
 	}
 
 	public void edit() {
-		System.err.println("Zum Editieren der Notiz diese bitte im Editor speichern, erst dann kann das Programm weiter ausgefuehrt werden.");
+		System.err.println(
+				"Zum Editieren der Notiz diese bitte im Editor speichern, erst dann kann das Programm weiter ausgefuehrt werden.");
 		Desktop desk = Desktop.getDesktop();
 		File file = new File(this.noteList.getDir() + File.separator + this.fileName);
 		try {
 			desk.edit(file);
 			boolean saved = false;
 			LocalDateTime now = LocalDateTime.now();
-			while(!saved) {
-				BasicFileAttributes fatr = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
-				LocalDateTime saveTime = LocalDateTime.ofInstant(fatr.lastModifiedTime().toInstant(),
+			while (!saved) {
+				LocalDateTime saveTime = LocalDateTime.ofInstant(
+						Files.readAttributes(file.toPath(), BasicFileAttributes.class).lastModifiedTime().toInstant(),
 						ZoneId.systemDefault());
-				Duration diff = Duration.between(saveTime, now);
-				if(diff.toSeconds() < 10) {
+				if (Duration.between(saveTime, now).toSeconds() < 10) {
 					saved = true;
 				}
 			}
-			System.out.println("edited note " + this.fileName );
+			System.out.println("edited note " + this.fileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
