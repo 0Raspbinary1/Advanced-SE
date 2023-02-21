@@ -1,6 +1,7 @@
 package main.java.play;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import main.java.alles.HandleInput;
@@ -9,114 +10,138 @@ public class Zahlenraten {
 
 	int input_range_down;
 	int input_range_up;
-	
-	int range_lowest;
-	int range_highest;
-		
-	int[] range;
-	
-	int versuche;
 
-//	----------------------^-Attribute-^------------------------------------
+	int randInt;
 	
-	public Zahlenraten(String[] args) {
+	int eingabe;
+	
+	int versuche = 0;
+
+	public Zahlenraten() {
 
 		System.out.println("\nWillkommen beim Zahlenraten!\n");
-		
-		this.range = getRangeInput();
-		
-		createRandomNumber(this.range[0], this.range[1], args);
-
 
 	}
-//	---------------------^-Konstruktor-^-----------------------------------
 
-	public int[] getRangeInput() {
-		
+	public void perform(String[] args) {
+		getRangeInput();
+
+		this.randInt = createRandomNumber(this.input_range_down, this.input_range_up);
+
+		System.out.println("Die Zufallszahl liegt zwischen " + this.input_range_down + " und " + this.input_range_up);
+
+		guessIt();
+
+		System.out.println("Die Zufallszahl " + randInt + " wurde im " + this.versuche + ". Versuch erraten!");
+
+		SpieleMain.main(args);
+	}
+
+	public void getRangeInput() {
+
 		System.out.println("Gib dein Zahlenraum an:\n");
 		Scanner sc = new Scanner(System.in);
 
-		this.input_range_down = 0;
-		this.input_range_up = 0;
-
 		System.out.println("Minimum Zahl: ");
 		do {
-			
-			input_range_down = sc.nextInt();
 
-			if (input_range_down < 0) {
+			this.input_range_down = sc.nextInt();
+
+			if (this.input_range_down < 0) {
 				System.out.println("Die Zahl darf nicht kleiner 0 sein!\n" + "Noch mal eingeben:");
 			}
-			
-		} while (input_range_down < 0);
-		
+
+		} while (this.input_range_down < 0);
 
 		System.out.println("Maximum Zahl: ");
 		do {
-			input_range_up = sc.nextInt();
+			try {
+				this.input_range_up = sc.nextInt();
+				if (this.input_range_up - this.input_range_down == 0) {
+					System.out.println("Die Grenzen duerfen nicht identisch sein!\n" + "Eingabe wiederholen\n\n");
+					getRangeInput();
+				}
+			} catch (InputMismatchException e) {
+				// hier könnte man eine M
+				System.out.println("Error 42. Eingegebene Zahl zu gross!\n" + "");
+				getRangeInput();
+			}
 
-
-			if (input_range_up >= Integer.MAX_VALUE) {
+			if (this.input_range_up >= Integer.MAX_VALUE) {
 				System.out.println(
 						"Die Zahl darf nicht groesser " + Integer.MAX_VALUE + " sein!\n" + "Noch mal eingeben:");
 			}
-		} while (input_range_up < 0);
+		} while (this.input_range_up < 0);
 
-		
-		return new int[] { input_range_down, input_range_up };
+//		return new int[] { this.input_range_down, this.input_range_up };
 	}
-	
 
-	public int createRandomNumber(int min, int max, String[] args) {
-		
+	public int createRandomNumber(int min, int max) {
+
 		System.out.println("Die Zufallszahl wird erzeugt\n");
 
 		int randInt = min + (int) (Math.random() * ((max - min) + 1));
-		
-		System.out.println("Die Zufallszahl liegt zwischen " + min + " und " + max);
-		
-		System.out.println(guessTheNumber(min, max, randInt, args));
-		
-		System.out.println("Die Zufallszahl " + randInt + " wurde im " + this.versuche + ". Versuch erraten!");
-		
-		SpieleMain.main(args);
-		
+
 		return randInt;
 
 	}
+
+	public void guessIt() {
+		getInputFromConsole();
+		String answer = guessTheNumber(this.input_range_down, this.input_range_up, this.randInt);
+
+		switch (answer) {
+		case "ungueltig":
+			System.out.println("\nUngueltige Eingabe! Eingabe wiederholen!");
+			guessIt();
+			break;
+		case "groesser":
+			System.out.println("\nDie gesuchte Zahl ist groesser!");
+			guessIt();
+			break;
+		case "kleiner":
+			System.out.println("\nDie gesuchte Zahl ist kleiner!");
+			guessIt();
+			break;
+		case "gefunden":
+			System.out.println("\nDu hast die gesuchte Zahl gefunden!");
+			break;
+		default:
+			System.out.println("\nInternal Method failure.");
+			break;
+		}
+
+	}
 	
-	public String guessTheNumber(int min, int max, int randInt, String[] args) {
-		
-		int eingabe;
-		
+	public void getInputFromConsole() {
 		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Bitte geben Sie eine Zahl ein: ");
+
+		this.eingabe = sc.nextInt();
 		
-		while (true) {
-			
-			this.versuche++;
-			
-			System.out.println("Bitte geben Sie eine Zahl ein: ");
-			
-			eingabe = sc.nextInt();
+	}
 
-			if (eingabe < min || eingabe > max) {
-				System.out.println("Ungueltige Eingabe! Eingabe wiederholen!");
+	public String guessTheNumber(int min, int max, int randInt) {
+		
+		this.versuche++;		
+		
+		if (this.eingabe < min || this.eingabe > max) {
+			return "ungueltig";
 
-			} else if (eingabe < randInt) {
-				System.out.println("Die gesuchte Zahl ist groesser!");
-				versuche++;
+		} else if (this.eingabe < randInt) {
 
-			} else if (eingabe > randInt) {
-				System.out.println("Die gesuchte Zahl ist kleiner!");
-				versuche++;
+			return "groesser";
 
-			} else {
-				return "Du hast die gesuchte Zahl gefunden!"; 
-						
-			}
+		} else if (this.eingabe > randInt) {
+
+			return "kleiner";
+
+		} else {
+			return "gefunden";
 
 		}
-		
+
 	}
 
 }

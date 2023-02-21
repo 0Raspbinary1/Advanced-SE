@@ -14,34 +14,24 @@ public class SpieleMain {
 	public static void main(String[] args) {
 		setMap();
 
-		Scanner sc = new Scanner(System.in);
-
 		System.out.println("\nHallo und herzlich Willkommen im Spiele-Modus!\n" + 
 		"Was moechtest du spielen?\n" + 
-		"1: Zahlen raten\n" + 
-		"2: Schere Stein Papier");
+		"1: Zahlen raten\n" +
+		"2: Schere Stein Papier\n" +
+		"x: Programm beenden\n" +
+		"s: Zurueck zum Hauptmenue");
 
 		String input_game = HandleInput.getInput(map, System.in);
 		if(input_game.equals("Start") || input_game.equals("Exit")) {
 			HandleExit.perform(input_game, args);
 		}else {
 			if (input_game.equals("zahlen")) {
-				new Zahlenraten(args);
+				new Zahlenraten().perform(args);
 			}
 			if(input_game.equals("schere")) {
 				new SchereSteinPapier().start(args);;
 			}
 		}
-
-//		if (input_game == 1) {
-//
-//		}
-//
-//		if (input_game == 2) {
-//
-//		}
-
-
 	}
 	
 	private static void setMap() {
