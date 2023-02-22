@@ -15,7 +15,7 @@ public class TestEntrace {
 	 private InputStream inputStream;
 	 private String input;
 	 private String response;
-	 private HashMap<String, String> map = new HashMap<String, String>();
+	 private HashMap<String, Object> map = new HashMap<String, Object>();
 	 
 	 @Before
 	 public void setMap() {
@@ -30,7 +30,7 @@ public class TestEntrace {
 	public void testHandleInputFalseInput() {
 		this.input = "test";
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
-		this.response = HandleInput.getInput(this.map, this.inputStream);
+		this.response = HandleInput.getInput(this.map, this.inputStream).toString();
 		assertEquals(response, "false input");
 	}
 	
@@ -38,7 +38,7 @@ public class TestEntrace {
 	public void testHandleInputRightInput() {
 		this.input = "x";
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
-		this.response = HandleInput.getInput(this.map, this.inputStream);
+		this.response = HandleInput.getInput(this.map, this.inputStream).toString();
 		assertEquals(response, "Exit");
 	}
 }

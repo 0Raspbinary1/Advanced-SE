@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class HandleInput {
-	public static String getInput(HashMap<String, String> map, InputStream systemIn) {
+	public static Object getInput(HashMap<String, Object> map, InputStream systemIn) {
 		Scanner sc = new Scanner(systemIn);
 		String input = sc.nextLine().toUpperCase();
 		while(!map.containsKey(input)) {

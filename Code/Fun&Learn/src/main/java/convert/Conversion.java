@@ -16,10 +16,10 @@ public class Conversion {
 	private String unit;
 	private double inputNumber;
 	private String goalUnit;
-	private String type;
+	private ConversionType type;
 	private InputStream systemIn;
 	
-	public Conversion(String type, String[] args, InputStream systemIn){
+	public Conversion(ConversionType type, String[] args, InputStream systemIn){
 		this.map = this.setMap(type);
 		this.type = type;
 		this.systemIn = systemIn;
@@ -34,7 +34,7 @@ public class Conversion {
 	private void perform(String [] args) {
 		this.askForInputs();
 		double output;
-		if(this.type.equals("Temperature")) {
+		if(this.type.equals(ConversionType.TEMPERATUR)) {
 			output = convertTemperture();
 		}else {
 			output = this.convert();
@@ -87,17 +87,17 @@ public class Conversion {
 		return sc.nextDouble();
 	}
 
-	private Map<String, Number> setMap(String type) {
-		switch (type) {
-			case "Weighting":
+	private Map<String, Number> setMap(ConversionType type2) {
+		switch (type2) {
+			case GEWICHT:
 				return Weighting.weights;
-			case "Length": 
+			case LANEGE: 
 				return Length.lenghts;
-			case "Temperature":
+			case TEMPERATUR:
 				return Temperature.temperatures;
-			case "Area":
+			case FLAECHE:
 				return Area.areas;
-			case "Time":
+			case ZEIT:
 				return Time.times;
 			default:
 				return null;

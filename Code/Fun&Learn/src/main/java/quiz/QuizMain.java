@@ -8,7 +8,7 @@ import main.java.alles.HandleInput;
 
 public class QuizMain {
 
-	private static HashMap<String, String> map = new HashMap<>();
+	private static HashMap<String, Object> map = new HashMap<>();
 	
 	public static void main(String[] args) {
 		setMap();
@@ -22,7 +22,7 @@ public class QuizMain {
 				+ "S: Zurueck zum Start\n"
 				+ "X: Anwendung beenden\n");
 
-		String input = HandleInput.getInput(map, System.in);
+		String input = HandleInput.getInput(map, System.in).toString();
 		
 		if(input.equals("Start") || input.equals("Exit")) {
 			HandleExit.perform(input, args);

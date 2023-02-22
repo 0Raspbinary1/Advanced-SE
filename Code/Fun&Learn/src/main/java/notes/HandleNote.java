@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 import main.java.alles.HandleExit;
 import main.java.alles.HandleInput;
+import main.java.convert.ConversionType;
 
 
 
@@ -20,19 +21,19 @@ public class HandleNote {
 	
 	private String fileName; 
 	private Map<String, String> fileMap;
-	private HashMap<String, String> numberMap = new HashMap<>();
-	private HashMap<String, String> optionMap = new HashMap<>();
-	private String text = "Option auswaehlen\n A: Anzeigen\n L: Loeschen\n N: neue Notiz erstellen\n S: zum Start zurueck\n X: Programm beenden";
+	private HashMap<String, Object> numberMap = new HashMap<>();
+	private HashMap<String, Object> optionMap = new HashMap<>();
+	private String text = "Option auswaehlen\n ";
 	private InputStream systemIn;
 	
-	public HandleNote(String type, String[] args, InputStream systemIn) {
+	public HandleNote(NotesTypes input, String[] args, InputStream systemIn) {
 		this.systemIn = systemIn;
 		initiateMaps();
-		switch(type) {
-			case "list":
+		switch(input) {
+			case AUFLISTEN:
 				list(args);
 				break;
-			case "new":
+			case NEU:
 				createNote();
 				break;
 		}
@@ -129,37 +130,49 @@ public class HandleNote {
 	}
 	
 	private void inititateOptionMap() {
-		this.optionMap.put("A", "show");
-		this.optionMap.put("D", "delete");
-		this.optionMap.put("N", "new");
-		this.optionMap.put("L", "list");
+//		A: Anzeigen\n L: Loeschen\n N: neue Notiz erstellen\n S: zum Start zurueck\n X: Programm beenden";
+		StringBuilder textBuilder = new StringBuilder();
+		int index = 0;
+		for (NotesOptions type : NotesOptions.values()) {
+			String stringType = type.toString();
+			String stringIndex = ""+ ++index;
+			this.optionMap.put(stringIndex, type);
+			textBuilder.append(stringIndex + ": "+ stringType + "\n ");
+		}
+		textBuilder.append("S: Zum Start zurueck \n X: Programm beenden \n...");
+		text = textBuilder.toString();
+//		this.optionMap.put("A", "show");
+//		this.optionMap.put("D", "delete");
+//		this.optionMap.put("N", "new");
+//		this.optionMap.put("L", "list");
 		this.optionMap.put("X", "Exit");
 		this.optionMap.put("S", "Start");
 	}
 	private void chooseNote(String[] args) {
 		System.out.println("Bitte den Index der Notiz eingeben: ");
-		this.fileName = HandleInput.getInput(this.numberMap, this.systemIn);
+		this.fileName = HandleInput.getInput(this.numberMap, this.systemIn).toString();
 		System.out.println("Notiz \"" + this.fileName + "\" ausgewaehlt");
 		performOptionOnNote(args);
 	}
 	
 	private void performOptionOnNote(String [] args) {
 		System.out.println(text);
-		String input = HandleInput.getInput(optionMap,  this.systemIn);
-		if(input.equals("Exit") || input.equals("Start")) {
-			HandleExit.perform(input , args);
+		Object input = HandleInput.getInput(optionMap, this.systemIn);
+		String inputAsString = input.toString();
+		if(inputAsString.equals("Exit") || inputAsString.equals("Start")) {
+			HandleExit.perform(inputAsString , args);
 		}
-		switch(input) {
-		case "show":
+		switch((NotesOptions) input) {
+		case ZEIGEN:
 			show();
 			break;
-		case "delete":
+		case LOESCHEN:
 			delete();
 			break;
-		case "new": 
+		case NEU: 
 			createNote();
 			break;
-		case "list":
+		case AUFLISTEN:
 			list(args);
 			break;
 		}
