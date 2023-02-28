@@ -26,7 +26,7 @@ public class SpieleMain {
 			HandleExit.perform(input_game, args);
 		}else {
 			if (input_game.equals("zahlen")) {
-				new Zahlenraten().perform(args);
+				new Zahlenraten(System.in).perform(args);
 			}
 			if(input_game.equals("schere")) {
 				new SchereSteinPapier().start(args);;

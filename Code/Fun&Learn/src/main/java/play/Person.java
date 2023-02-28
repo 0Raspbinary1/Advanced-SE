@@ -24,4 +24,10 @@ public class Person implements User {
 		return this.points;
 	}
 	
+	
+	@Override
+	public void setUserPoints(int points) {
+		this.points = points;
+	}
+	
 }

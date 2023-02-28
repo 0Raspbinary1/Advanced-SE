@@ -19,7 +19,6 @@ public class SchereSteinPapier {
 
 	public SchereSteinPapier() {
 		setGameMap();
-	
 	}
 
 	public String validateFinalResult(int user, int pc) {

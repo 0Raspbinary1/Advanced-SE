@@ -20,8 +20,12 @@ public class Computer implements User {
 
 	@Override
 	public int getUserPoints() {
-		// TODO Auto-generated method stub
 		return this.points;
+	}
+
+	@Override
+	public void setUserPoints(int points) {
+		this.points = points;		
 	}
 
 }

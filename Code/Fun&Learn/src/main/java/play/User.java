@@ -7,4 +7,6 @@ public interface User {
 	
 	public void incrementUserPoints();
 	public int getUserPoints();
+
+	public void setUserPoints(int points);
 }

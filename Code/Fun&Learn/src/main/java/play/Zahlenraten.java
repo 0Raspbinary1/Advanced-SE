@@ -1,5 +1,7 @@
 package main.java.play;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -12,19 +14,38 @@ public class Zahlenraten {
 	int input_range_up;
 
 	int randInt;
-	
+
 	int eingabe;
-	
+
 	int versuche = 0;
 
-	public Zahlenraten() {
+	Scanner sc;
+	InputStream inputStream;
+	
+	public int getEingabe() {
+		return this.eingabe;
+	}
+	
+	public void setEingabe(int eingabe) {
+		this.eingabe = eingabe;
+	}
 
+	public Zahlenraten(InputStream inStream) {
 		System.out.println("\nWillkommen beim Zahlenraten!\n");
-
+		this.inputStream = inStream;
+		sc = new Scanner(inStream);
 	}
 
 	public void perform(String[] args) {
-		getRangeInput();
+//		bool ..
+//		do aufruf und speicherugn in bool
+//		whilke nicht bool
+
+//		boolean rangeInputIsOK;
+//		do {
+//			rangeInputIsOK = getRangeInput();
+//		} while(!rangeInputIsOK);
+		setRangeInput();
 
 		this.randInt = createRandomNumber(this.input_range_down, this.input_range_up);
 
@@ -37,43 +58,58 @@ public class Zahlenraten {
 		SpieleMain.main(args);
 	}
 
-	public void getRangeInput() {
+	public int readInteger() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Geben Sie eine Ganzzahl ein: ");
+		int value = scanner.nextInt();
+		scanner.close();
+		return value;
+	}
+
+	public void setRangeInput() {
 
 		System.out.println("Gib dein Zahlenraum an:\n");
-		Scanner sc = new Scanner(System.in);
+
+		setRangeDown();
+		setRangeUp();
+
+	}
+
+	public void setRangeDown() {
+		boolean retry = false;
 
 		System.out.println("Minimum Zahl: ");
 		do {
 
 			this.input_range_down = sc.nextInt();
-
 			if (this.input_range_down < 0) {
 				System.out.println("Die Zahl darf nicht kleiner 0 sein!\n" + "Noch mal eingeben:");
+				retry = true;
+			} else {
+				retry = false;
 			}
 
-		} while (this.input_range_down < 0);
+		} while (retry);
 
+	}
+
+	public void setRangeUp() {
+		boolean retry = false;
 		System.out.println("Maximum Zahl: ");
+		
 		do {
-			try {
-				this.input_range_up = sc.nextInt();
-				if (this.input_range_up - this.input_range_down == 0) {
-					System.out.println("Die Grenzen duerfen nicht identisch sein!\n" + "Eingabe wiederholen\n\n");
-					getRangeInput();
-				}
-			} catch (InputMismatchException e) {
-				// hier könnte man eine M
-				System.out.println("Error 42. Eingegebene Zahl zu gross!\n" + "");
-				getRangeInput();
-			}
-
-			if (this.input_range_up >= Integer.MAX_VALUE) {
+			this.input_range_up = sc.nextInt();
+			if (this.input_range_up - this.input_range_down == 0) {
+				System.out.println("Die Grenzen duerfen nicht identisch sein!\n" + "Eingaben wiederholen\n\n");
+				setRangeInput();
+			} else if (this.input_range_up >= Integer.MAX_VALUE) {
 				System.out.println(
 						"Die Zahl darf nicht groesser " + Integer.MAX_VALUE + " sein!\n" + "Noch mal eingeben:");
+				retry = true;
+			} else if(this.input_range_up > this.input_range_down) {
+				retry = false;
 			}
-		} while (this.input_range_up < 0);
-
-//		return new int[] { this.input_range_down, this.input_range_up };
+		} while (retry);
 	}
 
 	public int createRandomNumber(int min, int max) {
@@ -112,20 +148,20 @@ public class Zahlenraten {
 		}
 
 	}
-	
+
 	public void getInputFromConsole() {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Bitte geben Sie eine Zahl ein: ");
 
 		this.eingabe = sc.nextInt();
-		
+
 	}
 
 	public String guessTheNumber(int min, int max, int randInt) {
-		
-		this.versuche++;		
-		
+
+		this.versuche++;
+
 		if (this.eingabe < min || this.eingabe > max) {
 			return "ungueltig";
 
