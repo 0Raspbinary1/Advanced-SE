@@ -9,6 +9,10 @@
 	<properties>
 		<java.version>18</java.version>
 	</properties>
+	<properties>
+  		<sonar.organization>0raspbinary1</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
