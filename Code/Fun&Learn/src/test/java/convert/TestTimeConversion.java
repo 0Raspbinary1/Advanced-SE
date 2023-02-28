@@ -13,11 +13,11 @@ public class TestTimeConversion {
 	@Before
 	public void setConversion() {
 		this.conv = new Conversion("Time", System.in);
+		this.conv.setSystemIn(null);
 	}
 
 	@Test
 	public void testHrToMin() {
-		this.conv.setSystemIn(null);
 		this.conv.setUnit("H");
 		this.conv.setInputNumber(8.951);
 		this.conv.setGoalUnit("MIN");
@@ -27,7 +27,6 @@ public class TestTimeConversion {
 
 	@Test
 	public void testMsToHr() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("H");
 		this.conv.setInputNumber(50086307);
 		this.conv.setUnit("MS");
@@ -37,7 +36,6 @@ public class TestTimeConversion {
 
 	@Test
 	public void testSecToDay() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("T");
 		this.conv.setInputNumber(2535092);
 		this.conv.setUnit("S");

@@ -13,11 +13,11 @@ public class TestWeigthingConversion {
 	@Before
 	public void setConversion() {
 		this.conv = new Conversion("Weigthing", System.in);
+		this.conv.setSystemIn(null);
 	}
 
 	@Test
 	public void testMueggrToKg() {
-		this.conv.setSystemIn(null);
 		this.conv.setUnit("MUEG");
 		this.conv.setInputNumber(895593471.64);
 		this.conv.setGoalUnit("KG");
@@ -27,7 +27,6 @@ public class TestWeigthingConversion {
 
 	@Test
 	public void testMgToGr() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("G");
 		this.conv.setInputNumber(50863.07);
 		this.conv.setUnit("MG");
@@ -37,7 +36,6 @@ public class TestWeigthingConversion {
 
 	@Test
 	public void testGrToTons() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("T");
 		this.conv.setInputNumber(235092.6);
 		this.conv.setUnit("G");

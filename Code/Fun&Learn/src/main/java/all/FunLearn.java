@@ -4,13 +4,12 @@ import java.util.HashMap;
 import main.java.convert.ConversionStartSite;
 import main.java.notes.NotesStartSite;
 import main.java.play.Main;
-import main.java.quiz.Quiz;
 import main.java.quiz.QuizMain;
 
 
 public class FunLearn {
 	
-	private static HashMap<String, String> map = new HashMap<String, String>();
+	private static HashMap<String, String> map = new HashMap<>();
 	private static String welcome = "Hallo und Herzlich Willkommen bei Fun&Learn!\n"
 			+ "Du findest unten verschiedene Modi, die du mithilfe von Zahlen auswaehlen kannst\n\n\n"
 			+ "Modi auswaehlen: ";

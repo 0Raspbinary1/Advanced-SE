@@ -13,11 +13,11 @@ public class TestTemperatureConversion {
 	@Before
 	public void setConversion() {
 		this.conv = new Conversion("Temperature", System.in);
+		this.conv.setSystemIn(null);
 	}
 
 	@Test
 	public void testKelvinToCelsius() {
-		this.conv.setSystemIn(null);
 		this.conv.setUnit("KELVIN");
 		this.conv.setInputNumber(293.15);
 		this.conv.setGoalUnit("CELSIUS");
@@ -27,7 +27,6 @@ public class TestTemperatureConversion {
 
 	@Test
 	public void testCelsiusToFahrenheit() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("FAHRENHEIT");
 		this.conv.setInputNumber(50.65);
 		this.conv.setUnit("CELSIUS");
@@ -37,7 +36,6 @@ public class TestTemperatureConversion {
 
 	@Test
 	public void testFahrenheitToKelvin() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("KELVIN");
 		this.conv.setInputNumber(18.47);
 		this.conv.setUnit("FAHRENHEIT");

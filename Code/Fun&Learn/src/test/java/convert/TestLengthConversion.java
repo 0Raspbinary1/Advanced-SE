@@ -13,11 +13,11 @@ public class TestLengthConversion {
 	@Before
 	public void setConversion() {
 		this.conv = new Conversion("Length", System.in);
+		this.conv.setSystemIn(null);
 	}
 
 	@Test
 	public void testMToCm() {
-		this.conv.setSystemIn(null);
 		this.conv.setUnit("M");
 		this.conv.setInputNumber(8.951);
 		this.conv.setGoalUnit("CM");
@@ -27,7 +27,6 @@ public class TestLengthConversion {
 
 	@Test
 	public void testMmToM() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("M");
 		this.conv.setInputNumber(500.65);
 		this.conv.setUnit("MM");
@@ -37,7 +36,6 @@ public class TestLengthConversion {
 
 	@Test
 	public void testQcmToQkm() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("KM");
 		this.conv.setInputNumber(25350);
 		this.conv.setUnit("DM");

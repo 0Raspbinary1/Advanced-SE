@@ -13,11 +13,11 @@ public class TestAreaConversion {
 	@Before
 	public void setConversion() {
 		this.conv = new Conversion("Area", System.in);
+		this.conv.setSystemIn(null);
 	}
 	
 	@Test
 	public void testQmToQkm() {
-		this.conv.setSystemIn(null);
 		this.conv.setUnit("QM");
 		this.conv.setInputNumber(13.951);
 		this.conv.setGoalUnit("QKM");
@@ -27,7 +27,6 @@ public class TestAreaConversion {
 	
 	@Test
 	public void testQkmToQm() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("QM");
 		this.conv.setInputNumber(5.65);
 		this.conv.setUnit("QKM");
@@ -37,7 +36,6 @@ public class TestAreaConversion {
 	
 	@Test
 	public void testQcmToQkm() {
-		this.conv.setSystemIn(null);
 		this.conv.setGoalUnit("QKM");
 		this.conv.setInputNumber(2.5);
 		this.conv.setUnit("QCM");
