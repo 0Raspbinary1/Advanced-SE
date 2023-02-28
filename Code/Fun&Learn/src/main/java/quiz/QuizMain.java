@@ -3,12 +3,12 @@ package main.java.quiz;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import main.java.alles.HandleExit;
-import main.java.alles.HandleInput;
+import main.java.all.HandleExit;
+import main.java.all.HandleInput;
 
 public class QuizMain {
 
-	private static HashMap<String, String> map = new HashMap<>();
+	private static HashMap<String, String> map = new HashMap<String, String>();
 	
 	public static void main(String[] args) {
 		setMap();
@@ -22,7 +22,7 @@ public class QuizMain {
 				+ "S: Zurueck zum Start\n"
 				+ "X: Anwendung beenden\n");
 
-		String input = HandleInput.getInput(map, System.in);
+		String input = HandleInput.getInput(map, System.in, false);
 		
 		if(input.equals("Start") || input.equals("Exit")) {
 			HandleExit.perform(input, args);

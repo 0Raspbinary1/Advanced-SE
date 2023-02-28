@@ -1,4 +1,4 @@
-package main.java.alles;
+package main.java.all;
 import java.util.HashMap;
 
 import main.java.convert.ConversionStartSite;
@@ -27,7 +27,7 @@ public class FunLearn {
 	}
 
 	private static void validateInput(String [] args) {
-		String input = HandleInput.getInput(map, System.in);
+		String input = HandleInput.getInput(map, System.in, false);
 		if(input.equals("Exit")) {
 			HandleExit.perform(input, args);
 		}else {

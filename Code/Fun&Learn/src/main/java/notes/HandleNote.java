@@ -1,10 +1,8 @@
 package main.java.notes;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,8 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import main.java.alles.HandleExit;
-import main.java.alles.HandleInput;
+import main.java.all.HandleExit;
+import main.java.all.HandleInput;
 
 
 
@@ -24,15 +22,20 @@ public class HandleNote {
 	private HashMap<String, String> numberMap = new HashMap<>();
 	private HashMap<String, String> optionMap = new HashMap<>();
 	private String text = "Option auswaehlen\n A: Anzeigen\n L: Loeschen\n N: neue Notiz erstellen\n S: zum Start zurueck\n X: Programm beenden";
-	private InputStream systemIn;
+//	private InputStream systemIn;
+	private boolean isTest = false; 
 	private NoteList noteList = new NoteList();
 	private String dir = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "Notes by Fun&Learn";
 	
-	public HandleNote(InputStream systemIn) {
-		this.systemIn = systemIn;
+	public HandleNote() {
+//		this.systemIn = systemIn;
 		this.inititateOptionMap();
 	}
 	
+	public void setTest(boolean isTest) {
+		this.isTest = isTest;
+	}
+
 	public void setNoteList(String dir) {
 		this.noteList.setDir(dir);
 	}
@@ -56,15 +59,15 @@ public class HandleNote {
 		NotesStartSite.main(args);
 	}
 
-	public void setSystemIn(InputStream systemIn) {
-		this.systemIn = systemIn;
-	}
+//	public void setSystemIn(InputStream systemIn) {
+//		this.systemIn = systemIn;
+//	}
 
 	public void delete() {
 		String pathString = this.noteList.getDir() + File.separator + this.fileName;
 		Path path = Paths.get(pathString);
 		try {
-			if(Files.deleteIfExists(path)&& this.systemIn instanceof BufferedInputStream) {
+			if(Files.deleteIfExists(path) && !this.isTest) {
 				System.out.println("Notiz \"" + this.fileName + "\" geloescht");
 			}
 		} catch (IOException e) {
@@ -91,11 +94,11 @@ public class HandleNote {
 		try {
 			if(file.createNewFile()) {
 				this.fileName = filename;
-				if(this.systemIn instanceof BufferedInputStream) {
+				if(!this.isTest) {
 					System.out.println("Notizdatei \"" + this.fileName + "\" erstellt");
 				}
 			}else {
-				if(this.systemIn instanceof BufferedInputStream) {
+				if(!this.isTest) {
 					System.out.println("Eine Notiz mit diesem Namen existiert bereits ");
 					createFile(getTitle());
 				}
@@ -106,7 +109,7 @@ public class HandleNote {
 	}
 
 	private String getTitle() {
-		Scanner sc = new Scanner(this.systemIn);
+		Scanner sc = new Scanner(System.in);
 		String title = sc.nextLine();
 		return title +".txt";
 	}
@@ -129,7 +132,7 @@ public class HandleNote {
 	private String getNoteText() {
 		System.out.println("Bitte den Text der Notiz eingeben: ");
 		System.err.println("\":wq\" speichert die Notiz und beendet die Eingabe");
-		Scanner sc = new Scanner(this.systemIn);
+		Scanner sc = new Scanner(System.in);
 		sc.useDelimiter(":wq");
 		String line;
 		while (true) {
@@ -177,14 +180,14 @@ public class HandleNote {
 	}
 	private void chooseNote(String[] args) {
 		System.out.println("Bitte den Index der Notiz eingeben: ");
-		this.fileName = HandleInput.getInput(this.numberMap, this.systemIn);
+		this.fileName = HandleInput.getInput(this.numberMap, System.in, false);
 		System.out.println("Notiz \"" + this.fileName + "\" ausgewaehlt");
 		performOptionOnNote(args);
 	}
 	
 	private void performOptionOnNote(String [] args) {
 		System.out.println(text);
-		String input = HandleInput.getInput(optionMap,  this.systemIn);
+		String input = HandleInput.getInput(optionMap,  System.in, false);
 		if(input.equals("Exit") || input.equals("Start")) {
 			HandleExit.perform(input , args);
 		}

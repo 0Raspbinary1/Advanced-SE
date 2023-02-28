@@ -1,52 +1,59 @@
 package main.java.convert;
 
+import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+
+import main.java.all.HandleInput;
 
 public class Conversion {
 	
 	private Scanner sc;
 	private Map<String, Number> map = new HashMap<>();
 	@SuppressWarnings("serial")
-	private List<String> defaultUnits = new ArrayList<>() {{add("kg"); add("m"); add("celsius"); add("qm"); add("h");}};
+	private List<String> defaultUnits = new ArrayList<>() {{add("G"); add("M"); add("CELSIUS"); add("QM"); add("H");}};
 	private String unit;
 	private double inputNumber;
 	private String goalUnit;
 	private String type;
 	private InputStream systemIn;
+	private double output;
 	
-	public Conversion(String type, String[] args, InputStream systemIn){
+	public Conversion(String type, InputStream systemIn){
 		this.map = this.setMap(type);
 		this.type = type;
 		this.systemIn = systemIn;
 		this.setupScanner();
-		this.perform(args);
 	}
 	
 	private void setupScanner() {
 		this.sc = new Scanner(this.systemIn);
 	}
 
-	private void perform(String [] args) {
-		this.askForInputs();
-		double output;
-		if(this.type.equals("Temperature")) {
-			output = convertTemperture();
-		}else {
-			output = this.convert();
+	public void perform(String [] args) {
+		if(this.systemIn instanceof BufferedInputStream) {
+			this.askForInputs();
 		}
-		System.out.println("\nErgebnis:\n-------------------------\n" + output +"\n-------------------------\n");
-		ConversionStartSite.main(args);
+		if(this.type.equals("Temperature")) {
+			this.output = convertTemperture();
+		}else {
+			this.output = this.convert();
+		}
+		if(this.systemIn instanceof BufferedInputStream) {
+			System.out.println("\nErgebnis:\n-------------------------\n" + this.output +"\n-------------------------\n");
+			ConversionStartSite.main(args);
+		} 
 	}
 	
 	private double convertTemperture() {
 		if(this.defaultUnits.contains(this.unit)) {
 			return Temperature.convertFromCelsius(this.inputNumber, this.goalUnit);
-		}else if(this.unit.equals("kelvin")) {
+		}else if(this.unit.equals("KELVIN")) {
 			return Temperature.convertFromKelvin(this.inputNumber, this.goalUnit);
 		}else{
 			return Temperature.convertFromFahrenheit(this.inputNumber, this.goalUnit);
@@ -59,26 +66,51 @@ public class Conversion {
 			return this.inputNumber / (double) this.map.get(goalUnit);
 		}else {
 			help = this.inputNumber * (double) this.map.get(unit);
-			if(this.defaultUnits.contains(this.goalUnit)) {
-				return help;
-			}
+//			if(this.defaultUnits.contains(this.goalUnit)) {
+//				return help;
+//			}
+			return help / (double) this.map.get(goalUnit);
 		}
-		return help / (double) this.map.get(goalUnit);
 	}
 	
 	private void askForInputs() {
-		do {
-			System.out.println("Bitte die Einheit des umzurechnenden Werts eingeben: ");
-			this.unit = sc.nextLine().toLowerCase();
-		} while (!this.map.containsKey(this.unit));
+		System.out.println("Bitte die Einheit des umzurechnenden Werts eingeben: ");
+		setUnit(HandleInput.getInput(this.parseMap(), this.systemIn, true));
 		System.out.println("Bitte den Wert zum umrechnen eingeben:");
 		this.inputNumber = readDoubleInput();
 		System.out.println("Bitte die Einheit eingeben, in die umgerechnet werden soll: ");
-		do {
-			this.goalUnit = sc.nextLine().toLowerCase();
-		} while (!this.map.containsKey(this.goalUnit));
+		setGoalUnit(HandleInput.getInput(this.parseMap(), systemIn, true));
 	}
-	
+
+	public double getOutput() {
+		return output;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+	public void setInputNumber(double inputNumber) {
+		this.inputNumber = inputNumber;
+	}
+
+	public void setGoalUnit(String goalUnit) {
+		this.goalUnit = goalUnit;
+	}
+
+	public void setSystemIn(InputStream systemIn) {
+		this.systemIn = systemIn;
+	}
+
+	private HashMap<String, String> parseMap() {
+		HashMap<String, String> stringMap = new HashMap<String, String>();
+		Set<String> keys = this.map.keySet();
+ 		for (String key:keys) {
+ 			stringMap.put(key, this.map.get(key).toString());
+ 		}
+		return stringMap;
+	}
+
 	private double readDoubleInput() {
 		while(!sc.hasNextDouble()) {
 			System.out.println("Eingabe nicht erkannt. Bitte den Wert zum umrechnen eingeben:");
@@ -89,8 +121,8 @@ public class Conversion {
 
 	private Map<String, Number> setMap(String type) {
 		switch (type) {
-			case "Weighting":
-				return Weighting.weights;
+			case "Weigthing":
+				return Weigthing.weigths;
 			case "Length": 
 				return Length.lenghts;
 			case "Temperature":

@@ -41,8 +41,9 @@ public class TestNotes {
 
 	@Before
 	public void setHandleNote() {
-		this.hnote = new HandleNote(new ByteArrayInputStream(new byte[0]));
+		this.hnote = new HandleNote();
 		this.hnote.setNoteList(notesDir);
+		this.hnote.setTest(true);
 	}
 
 	@After

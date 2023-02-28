@@ -2,7 +2,7 @@ package main.java.quiz;
 
 import java.util.HashMap;
 
-import main.java.alles.HandleInput;
+import main.java.all.HandleInput;
 
 public class Quiz {
 
@@ -20,7 +20,7 @@ public class Quiz {
 		for(int i = 0; i <this.questions.length;i++) {
 			System.out.println(this.questions[i].getQuestion());
 			printAnswers(this.questions[i].getAnwsers());
-			String guess = HandleInput.getInput(this.charMap, System.in);
+			String guess = HandleInput.getInput(this.charMap, System.in, false);
 			validateAnswer(guess, this.questions[i].getRightAnswer());
 		}
 		System.out.println("Quiz zu Ende. "+ this.score +" von moeglichen " + questions.length + " Punkten erreicht\n\n");
