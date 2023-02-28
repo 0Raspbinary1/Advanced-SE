@@ -8,6 +8,7 @@ public class HandleExit {
 				FunLearn.main(args);
 				break;
 			case "Exit":
+				System.out.println("Programm wurde beendet");
 				System.exit(0);
 				break;
 			default:

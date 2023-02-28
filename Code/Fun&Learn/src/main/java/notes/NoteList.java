@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class NoteList {
 	private String dir = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "Notes by Fun&Learn";
-	private  HashMap<String, String> notes = new HashMap<>(); //key: filename, value: text in file
+	private  HashMap<String, String> notes = new HashMap<String, String>(); //key: filename, value: text in file
 	
 	public String getDir() {
 		return this.dir;
@@ -20,16 +20,15 @@ public class NoteList {
 
 	public  HashMap<String, String> getMap() {
 		createDirIfNotExists();
-		notes = new HashMap<>();
 		try {
 			for(String fileName : listFilesUsingDirectoryStream()) {
 				String value = readFile(fileName);
-				notes.put(fileName, value);
+				this.notes.put(fileName, value);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return notes;
+		return this.notes;
 	}
 	
 	private void createDirIfNotExists() {

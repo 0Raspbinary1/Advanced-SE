@@ -1,6 +1,5 @@
 package test.java.all;
 
-
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
