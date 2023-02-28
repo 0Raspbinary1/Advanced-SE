@@ -2,8 +2,8 @@ package main.java.notes;
 
 import java.util.HashMap;
 
-import main.java.alles.HandleExit;
-import main.java.alles.HandleInput;
+import main.java.all.HandleExit;
+import main.java.all.HandleInput;
 
 
 public class NotesStartSite {
@@ -15,7 +15,7 @@ public class NotesStartSite {
 				+ "X: Programm beenden \n...";
 		System.out.println(text);
 		
-		String input = HandleInput.getInput(map, System.in);
+		String input = HandleInput.getInput(map, System.in, false);
 		if(input.equals("Start") || input.equals("Exit")) {
 			HandleExit.perform(input, args);
 		}else {

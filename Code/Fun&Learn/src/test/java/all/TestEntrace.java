@@ -9,7 +9,7 @@ import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.alles.HandleInput;
+import main.java.all.HandleInput;
 
 public class TestEntrace {
 	 private InputStream inputStream;
@@ -30,15 +30,15 @@ public class TestEntrace {
 	public void testHandleInputFalseInput() {
 		this.input = "test";
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
-		this.response = HandleInput.getInput(this.map, this.inputStream);
-		assertEquals(response, "false input");
+		this.response = HandleInput.getInput(this.map, this.inputStream, false);
+		assertEquals("false input", response);
 	}
 	
 	@Test
 	public void testHandleInputRightInput() {
 		this.input = "x";
 		this.inputStream = new ByteArrayInputStream(input.getBytes());
-		this.response = HandleInput.getInput(this.map, this.inputStream);
-		assertEquals(response, "Exit");
+		this.response = HandleInput.getInput(this.map, this.inputStream, false);
+		assertEquals("Exit", response);
 	}
 }

@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class NoteList {
 	private String dir = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "Notes by Fun&Learn";
-	private  HashMap<String, String> notes = new HashMap<>(); //key: filename, value: text in file
+	private  HashMap<String, String> notes = new HashMap<String, String>(); //key: filename, value: text in file
 	
 	public String getDir() {
 		return this.dir;

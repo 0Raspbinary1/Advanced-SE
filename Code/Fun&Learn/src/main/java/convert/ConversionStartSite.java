@@ -2,8 +2,8 @@ package main.java.convert;
 
 import java.util.HashMap;
 
-import main.java.alles.HandleExit;
-import main.java.alles.HandleInput;
+import main.java.all.HandleExit;
+import main.java.all.HandleInput;
 
 
 public class ConversionStartSite {
@@ -14,16 +14,16 @@ public class ConversionStartSite {
 				+ " 5: Zeit \n S: Zum Start zurueck \n X: Programm beenden \n...";
 		System.out.println(text);
 		
-		String input = HandleInput.getInput(map, System.in);
+		String input = HandleInput.getInput(map, System.in, false);
 		if(input.equals("Start") || input.equals("Exit")) {
 			HandleExit.perform(input, args);
 		}else {
-			new Conversion(input, args, System.in);
+			new Conversion(input, System.in).perform(args);
 		}
 	}
 	
 	private static void setMap() {
-		map.put("1", "Weighting");
+		map.put("1", "Weigthing");
 		map.put("2", "Length");
 		map.put("3", "Temperature");
 		map.put("4", "Area");
