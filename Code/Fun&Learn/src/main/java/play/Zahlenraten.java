@@ -15,7 +15,7 @@ public class Zahlenraten {
 
 	int randInt;
 
-	int eingabe;
+	public int eingabe;
 
 	int versuche = 0;
 

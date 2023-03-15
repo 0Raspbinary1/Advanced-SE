@@ -55,10 +55,10 @@ public class TestZahlenraten {
 		this.raten.setEingabe(13);
 		
 		assertEquals("gefunden", this.raten.guessTheNumber(min, max, rand));
-	}//
+	}
 	
 	@Test
-	public void testGuessTheNumberGefundenGroesser() {
+	public void testGuessTheNumberGroesser() {
 		int min = 0;
 		int max = 20;
 		int rand = 13;
@@ -66,10 +66,10 @@ public class TestZahlenraten {
 		this.raten.setEingabe(10);
 		
 		assertEquals("groesser", this.raten.guessTheNumber(min, max, rand));
-	}//
+	}
 	
 	@Test
-	public void testGuessTheNumberGefundenKleiner() {
+	public void testGuessTheNumberKleiner() {
 		int min = 0;
 		int max = 20;
 		int rand = 13;
@@ -77,7 +77,7 @@ public class TestZahlenraten {
 		this.raten.setEingabe(15);
 		
 		assertEquals("kleiner", this.raten.guessTheNumber(min, max, rand));
-	}//
+	}
 	
 	@Test
 	public void testGuessTheNumberGefundenUngueltig() {
@@ -88,7 +88,6 @@ public class TestZahlenraten {
 		this.raten.setEingabe(0);
 		assertEquals("ungueltig", this.raten.guessTheNumber(min, max, rand));
 		
-		//
 		
 		min = 1;
 		max = 20;
@@ -98,10 +97,27 @@ public class TestZahlenraten {
 		assertEquals("ungueltig", this.raten.guessTheNumber(min, max, rand));
 	}
 	
+	@Test
+	public void testGuessTheNumberSetEingabe() {
+		int num = 0;
+		this.raten.setEingabe(num);
+		assertEquals(0, this.raten.eingabe);
+	}
 
+	@Test
+	public void testGuessTheNumberGetEingabe() {
+		this.raten.setEingabe(4);
+		assertEquals(4, this.raten.getEingabe());
+	}
+	
+//	@Test
+//	public void testGuessTheNumberReadInteger() {
+//		int num = 5;
+//		this.raten.readInteger(this.inputStream.read(5));
+//	}
 	
 	
-	
+
 	
 	
 //	@Test
