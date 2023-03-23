@@ -12,7 +12,6 @@ public class QuizMain {
 
 	private static HashMap<String, String> map = new HashMap<>();
 	private static InputStream sysIn;
-	private static Scanner scsc;
 	
 	public static void main(String[] args) {
 		setMap();
