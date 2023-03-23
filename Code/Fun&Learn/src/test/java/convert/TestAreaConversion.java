@@ -31,7 +31,7 @@ public class TestAreaConversion {
 		this.conv.setInputNumber(5.65);
 		this.conv.setUnit("QKM");
 		this.conv.perform(new String[0]);
-		assertEquals(5.65*Math.pow(10, 6), this.conv.getOutput(), Math.pow(10, 8));
+		assertEquals(5.65*Math.pow(10, 6), this.conv.getOutput(), Math.pow(10, -2));
 	}
 	
 	@Test
