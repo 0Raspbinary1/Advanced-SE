@@ -13,7 +13,7 @@ import main.java.quiz.Quiz;
 
 public class TestQuiz {
 	String eingabe = "Deutschland";	
-	String[] args;
+//	String[] args;
 	ParseQuestions parseQ = new ParseQuestions(eingabe);
 	String[][] questionArray = parseQ.getQuestions().getArray();
 	String[] answers = new String[4];
@@ -21,10 +21,6 @@ public class TestQuiz {
 
 	Quiz quiz = new Quiz(eingabe);
 	DeutschlandF de = new DeutschlandF();
-	
-//	Question question = new Question(de.getArray()[0][0], de.getArray()[0][],);
-	
-	
 	
 	
 	@Test

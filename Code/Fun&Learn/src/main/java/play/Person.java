@@ -7,6 +7,10 @@ public class Person implements User {
 
 	private int points;
 	
+	public Person () {
+		this.points = 0;
+	}
+	
 	@Override
 	public String getChoice() {
 
@@ -15,7 +19,7 @@ public class Person implements User {
 
 
 	@Override
-	public void incrementUserPoints() {
+	public void incrementPoints() {
 		this.points++;		
 	}
 

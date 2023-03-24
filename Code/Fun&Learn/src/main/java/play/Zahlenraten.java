@@ -19,7 +19,7 @@ public class Zahlenraten {
 
 	int versuche = 0;
 
-	Scanner sc;
+	Scanner scanner;
 	InputStream inputStream;
 	
 	public int getEingabe() {
@@ -33,7 +33,7 @@ public class Zahlenraten {
 	public Zahlenraten(InputStream inStream) {
 		System.out.println("\nWillkommen beim Zahlenraten!\n");
 		this.inputStream = inStream;
-		sc = new Scanner(inStream);
+		this.scanner = new Scanner(inStream);
 	}
 
 	public void perform(String[] args) {
@@ -81,7 +81,7 @@ public class Zahlenraten {
 		System.out.println("Minimum Zahl: ");
 		do {
 
-			this.input_range_down = sc.nextInt();
+			this.input_range_down = this.scanner.nextInt();
 			if (this.input_range_down < 0) {
 				System.out.println("Die Zahl darf nicht kleiner 0 sein!\n" + "Noch mal eingeben:");
 				retry = true;
@@ -98,10 +98,11 @@ public class Zahlenraten {
 		System.out.println("Maximum Zahl: ");
 		
 		do {
-			this.input_range_up = sc.nextInt();
+			this.input_range_up = this.scanner.nextInt();
 			if (this.input_range_up - this.input_range_down == 0) {
 				System.out.println("Die Grenzen duerfen nicht identisch sein!\n" + "Eingaben wiederholen\n\n");
 				setRangeInput();
+				retry = false;
 			} else if (this.input_range_up >= Integer.MAX_VALUE) {
 				System.out.println(
 						"Die Zahl darf nicht groesser " + Integer.MAX_VALUE + " sein!\n" + "Noch mal eingeben:");
@@ -150,11 +151,10 @@ public class Zahlenraten {
 	}
 
 	public void getInputFromConsole() {
-		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Bitte geben Sie eine Zahl ein: ");
 
-		this.eingabe = sc.nextInt();
+		this.eingabe = this.scanner.nextInt();
 
 	}
 

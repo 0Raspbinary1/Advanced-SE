@@ -58,14 +58,15 @@ public class TestSSP {
 		
 		if(choice.equals("schere")) {
 			assertEquals("schere", choice);		
-		}
-		if(choice.equals("stein")) {
+		} else if(choice.equals("stein")) {
 			assertEquals("stein", choice);		
 
-		}
-		if(choice.equals("papier")) {
+		}else if(choice.equals("papier")) {
 			assertEquals("papier", choice);		
 
+		} else {
+			assertEquals(0, 0);
+			System.out.println("Fehler bei der Computer Choice");
 		}
 	}
 
@@ -94,7 +95,7 @@ public class TestSSP {
 	public void testIncrementUserPoints() {
 		this.person.setUserPoints(1);
 //		int oldPoints = this.person.getUserPoints();
-		this.person.incrementUserPoints();
+		this.person.incrementPoints();
 		
 		assertEquals(2, this.person.getUserPoints());
 	}
