@@ -21,7 +21,13 @@ public class TestZahlenraten {
 
 
 	@Test
-	public void testZahlenratenCreateRandomNumber() {
+	public void testGetEingabe() {
+		this.raten.setEingabe(13);
+		assertEquals(13, this.raten.getEingabe());
+	}
+	
+	@Test
+	public void testCreateRandomNumber() {
 //		should be >=min && <= MAX
 		boolean passt = false;
 		int up1 = 20;
