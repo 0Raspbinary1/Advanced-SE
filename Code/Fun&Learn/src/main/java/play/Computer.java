@@ -4,17 +4,20 @@ public class Computer implements User {
 
 	private int points;
 	
+	public Computer() {
+		this.points = 0;
+	}
+	
 	@Override
 	public String getChoice() {
 		String[] arr = new String[] { "schere", "stein", "papier" };
-		String randChoice = "";
-		int rand = 0 + (int) (Math.random() * ((2 - 0) + 1));
-		randChoice = arr[rand];
+		int rand = (int) (Math.random() * ((2 - 0) + 1));
+		String randChoice = arr[rand];
 		return randChoice;		
 	}
 
 	@Override
-	public void incrementUserPoints() {
+	public void incrementPoints() {
 		this.points++;
 	}
 

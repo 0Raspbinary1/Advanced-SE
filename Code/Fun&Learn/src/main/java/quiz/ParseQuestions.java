@@ -13,10 +13,9 @@ public class ParseQuestions {
 			case "Astronomie":
 				this.questions = new AstronomieF();
 		}
-		parseQuestions();
 	}
 
-	private void parseQuestions() {
+	public void parseQuestions() {
 		String[][] twoDimQuestionArray = this.questions.getArray();
 		this.questionArray = new Question[twoDimQuestionArray.length];
 		for (int i = 0; i < twoDimQuestionArray.length; i++) {
@@ -27,8 +26,12 @@ public class ParseQuestions {
 	public Question[] getQuestionArray() {
 		return this.questionArray;
 	}
+	
+	public Questions getQuestions() {
+		return this.questions;
+	}
 
-	private String[] getAnswers(int index, String[][] twoDimQuestionArray) {
+	public String[] getAnswers(int index, String[][] twoDimQuestionArray) {
 		String[] answers = new String[4];
 		int indexAnswer = 1;
 		for (int i = 0; i < answers.length; i++) {

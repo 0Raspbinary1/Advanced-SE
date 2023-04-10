@@ -21,10 +21,10 @@ public class SchereSteinPapier {
 		setGameMap();
 	}
 
-	public String validateFinalResult(int user, int pc) {
-		if (user > pc) {
+	public String validateFinalResult(int userPoints, int pcPoints) {
+		if (userPoints > pcPoints) {
 			return "Glueckwunsch zum Sieg!";
-		} else if (pc > user) {
+		} else if (pcPoints > userPoints) {
 			return "Schade, vielleicht beim naechsten Spiel!";
 		}
 		return "Fehler";
@@ -38,9 +38,6 @@ public class SchereSteinPapier {
 		boolean aktiv = true;
 
 		while (aktiv) {
-			
-			int pcPoints = 0;
-			int userPoints = 0;
 			int counterRounds = 0;
 			
 			while (this.computer.getUserPoints() < 2 && this.person.getUserPoints() < 2) {
@@ -48,8 +45,6 @@ public class SchereSteinPapier {
 				String pcChoice = this.computer.getChoice();
 				System.out.println("" + counterRounds + ". Runde: Computer hat sich entschieden.\n"
 						+ "Was nimmst du? Eingabe in Kleinbuchstaben:\n");
-				//auslagern
-				//userInput = HandleInput.getInput(gameMap, System.in);
 				userInput = this.person.getChoice();
 				System.out.println("userinput: " + userInput + "\n------------");
 
@@ -58,11 +53,11 @@ public class SchereSteinPapier {
 				
 				switch (erg) {
 				
-					case "1": break;
+					case "draw": break;
 					
-					case "2": this.person.incrementUserPoints();;break;
+					case "win": this.person.incrementPoints();break;
 					
-					case "0": this.computer.incrementUserPoints();;break;
+					case "lose": this.computer.incrementPoints();break;
 					
 					default: throw new IllegalArgumentException("Unexpected value: " + erg);
 				}
@@ -78,40 +73,38 @@ public class SchereSteinPapier {
 	}
 
 	public String compare(String randChoice, String userInput) {
-		/*
-		 * 0 = lose 1 = draw 2 = win
-		 */
+
 		if (randChoice.equals(userInput)) {
 			System.out.println("unentschieden\n");
-			return "1";
+			return "draw";
 		}
 		switch(randChoice) {
 		case "schere": 
 			if (userInput.equals("stein")) {
 				System.out.println("gewonnen gegen Schere\n");
-				return "2";
+				return "win";
 			}
 			if (userInput.equals("papier")) {
 				System.out.println("verloren gegen Schere\n");
-				return "0";
+				return "lose";
 			}			
 		case "stein":
 			if (userInput.equals("schere")) {
 				System.out.println("verloren gegen Stein\n");
-				return "0";
+				return "lose";
 			}
 			if (userInput.equals("papier")) {
 				System.out.println("gewonnen gegen Stein\n");
-				return "2";
+				return "win";
 			}			
 		case "papier":
 			if (userInput.equals("schere")) {
 				System.out.println("gewonnen gegen Papier\n");
-				return "2";
+				return "win";
 			}
 			if (userInput.equals("stein")) {
 				System.out.println("verloren gegen Papier\n");
-				return "0";
+				return "lose";
 			}
 		default: return "42";
 		}

@@ -17,33 +17,31 @@ import main.java.play.Zahlenraten;
 
 public class TestZahlenraten {
 
-	private Zahlenraten raten = new Zahlenraten(System.in);;
-	private InputStream inputStream;
-	private String user;
-	private String pc;
-	private String response;
-	private HashMap<String, String> gameMap = new HashMap<String, String>();
+	private Zahlenraten raten = new Zahlenraten(System.in);
 
-	@Before
-	public void setGameMap() {
-		this.gameMap.put("SCHERE", "schere");
-		this.gameMap.put("STEIN", "stein");
-		this.gameMap.put("PAPIER", "papier");
-	}
 
 	@Test
-	public void testZahlenratenCreateRandomNumber() {
+	public void testGetEingabe() {
+		this.raten.setEingabe(13);
+		assertEquals(13, this.raten.getEingabe());
+	}
+	
+	@Test
+	public void testCreateRandomNumber() {
 //		should be >=min && <= MAX
 		boolean passt = false;
 		int up1 = 20;
 		int down1 = 0;
-		var raten = new Zahlenraten(System.in);
+		Zahlenraten raten = new Zahlenraten(System.in);
 		int random = raten.createRandomNumber(down1, up1);
 		
 		if(random <= up1 && random >= down1) {
 			passt = true;
+			assertEquals(true, passt);
+		} else {
+			assertEquals(false, passt);	
 		}
-		assertEquals(true, passt);
+		
 	}
 	
 	@Test
