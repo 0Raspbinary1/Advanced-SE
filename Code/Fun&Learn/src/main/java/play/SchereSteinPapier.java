@@ -40,7 +40,7 @@ public class SchereSteinPapier {
 		while (aktiv) {
 			int counterRounds = 0;
 			
-			while (this.computer.getUserPoints() < 2 && this.person.getUserPoints() < 2) {
+			while (this.computer.getPoints() < 2 && this.person.getPoints() < 2) {
 				counterRounds++;
 				String pcChoice = this.computer.getChoice();
 				System.out.println("" + counterRounds + ". Runde: Computer hat sich entschieden.\n"
@@ -63,9 +63,9 @@ public class SchereSteinPapier {
 				}
 				
 	
-				System.out.println("pc: " + this.computer.getUserPoints() + "    " + "user: " + this.person.getUserPoints());
+				System.out.println("pc: " + this.computer.getPoints() + "    " + "user: " + this.person.getPoints());
 			}
-			System.out.println(validateFinalResult(this.person.getUserPoints(), this.computer.getUserPoints()));
+			System.out.println(validateFinalResult(this.person.getPoints(), this.computer.getPoints()));
 
 			SpieleMain.main(args);
 

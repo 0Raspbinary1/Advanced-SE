@@ -93,23 +93,23 @@ public class TestSSP {
 	
 	@Test
 	public void testIncrementUserPoints() {
-		this.person.setUserPoints(1);
+		this.person.setPoints(1);
 //		int oldPoints = this.person.getUserPoints();
 		this.person.incrementPoints();
 		
-		assertEquals(2, this.person.getUserPoints());
+		assertEquals(2, this.person.getPoints());
 	}
 	
 	@Test
 	public void testGetUserPoints() {
-		this.computer.setUserPoints(1);
-		int points = this.computer.getUserPoints();
+		this.computer.setPoints(1);
+		int points = this.computer.getPoints();
 		assertEquals(1, points);
 	}
 	
 	@Test
 	public void testSetUserPoints() {
-		this.computer.setUserPoints(1);
-		assertEquals(1, this.computer.getUserPoints());
+		this.computer.setPoints(1);
+		assertEquals(1, this.computer.getPoints());
 	}
 }

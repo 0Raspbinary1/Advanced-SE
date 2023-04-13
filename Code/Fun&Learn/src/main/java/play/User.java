@@ -6,7 +6,7 @@ public interface User {
 	public String getChoice();
 	
 	public void incrementPoints();
-	public int getUserPoints();
+	public int getPoints();
 
-	public void setUserPoints(int points);
+	public void setPoints(int points);
 }

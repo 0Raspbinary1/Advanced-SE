@@ -24,13 +24,13 @@ public class Person implements User {
 	}
 
 	@Override
-	public int getUserPoints() {
+	public int getPoints() {
 		return this.points;
 	}
 	
 	
 	@Override
-	public void setUserPoints(int points) {
+	public void setPoints(int points) {
 		this.points = points;
 	}
 	
