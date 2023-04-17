@@ -17,9 +17,10 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
-        <configuration>
-          <release>15</release>
-        </configuration>
+        <!-- <configuration>
+			<source>11</source>
+			<target>11</target>
+		</configuration>  -->
       </plugin>
     </plugins>
   </build>
@@ -33,6 +34,10 @@
     </dependency>
   </dependencies>
   <properties>
+	<java.version>18</java.version>
+	<java.compiler>14</java.compiler>
+	<sonar.organization>0raspbinary1</sonar.organization>
+	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>

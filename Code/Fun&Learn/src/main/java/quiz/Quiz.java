@@ -1,15 +1,11 @@
 package main.java.quiz;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 
-import main.java.alles.HandleExit;
-import main.java.alles.HandleInput;
+import main.java.all.HandleInput;
 
 public class Quiz {
 
-	private HashMap<String, String> map = new HashMap<>();
 	private HashMap<String, String> charMap = new HashMap<>();
 	private int score = 0;
 	private Question [] questions;
