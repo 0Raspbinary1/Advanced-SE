@@ -1,18 +1,9 @@
 package test.java.play;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.InputStream;
-import java.util.HashMap;
-
-import org.junit.Before;
 import org.junit.Test;
 
-import main.java.alles.HandleInput;
-import main.java.play.SchereSteinPapier;
 import main.java.play.Zahlenraten;
 
 public class TestZahlenraten {

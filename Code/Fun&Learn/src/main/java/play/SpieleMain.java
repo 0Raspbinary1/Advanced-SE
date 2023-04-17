@@ -3,8 +3,8 @@ package main.java.play;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import main.java.alles.HandleExit;
-import main.java.alles.HandleInput;
+import main.java.all.HandleExit;
+import main.java.all.HandleInput;
 import main.java.convert.Conversion;
 
 public class SpieleMain {
@@ -21,7 +21,7 @@ public class SpieleMain {
 		"x: Programm beenden\n" +
 		"s: Zurueck zum Hauptmenue");
 
-		String input_game = HandleInput.getInput(map, System.in);
+		String input_game = HandleInput.getInput(map, System.in, false);
 		if(input_game.equals("Start") || input_game.equals("Exit")) {
 			HandleExit.perform(input_game, args);
 		}else {

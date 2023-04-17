@@ -1,9 +1,6 @@
 package main.java.play;
 
 import java.util.HashMap;
-import java.util.Scanner;
-
-import main.java.alles.HandleInput;
 
 public class SchereSteinPapier {
 	

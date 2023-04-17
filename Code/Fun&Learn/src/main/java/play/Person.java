@@ -1,6 +1,6 @@
 package main.java.play;
 
-import main.java.alles.HandleInput;
+import main.java.all.HandleInput;
 import main.java.play.SchereSteinPapier;
 
 public class Person implements User {
@@ -14,7 +14,7 @@ public class Person implements User {
 	@Override
 	public String getChoice() {
 
-		return HandleInput.getInput(new SchereSteinPapier().getGameMap(), System.in);		
+		return HandleInput.getInput(new SchereSteinPapier().getGameMap(), System.in, false);		
 	}
 
 

@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-import main.java.alles.HandleInput;
 
 public class Zahlenraten {
 

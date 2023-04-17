@@ -26,7 +26,7 @@ public class Quiz {
 		for(int i = 0; i < this.questions.length;i++) {
 			System.out.println(this.questions[i].getQuestion());
 			printAnswers(this.questions[i].getAnwsers());
-			String guess = HandleInput.getInput(this.charMap, System.in);
+			String guess = HandleInput.getInput(this.charMap, System.in, false);
 			System.out.println(validateAnswer(guess, this.questions[i].getRightAnswer()));
 			System.out.println("Deine aktuelle Punktzahl betraegt: "+ this.score + "\n\n");
 		}

@@ -1,5 +1,6 @@
 package main.java.quiz;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Scanner;
 

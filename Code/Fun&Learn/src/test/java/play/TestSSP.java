@@ -1,23 +1,19 @@
 package test.java.play;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.alles.HandleInput;
 import main.java.play.Computer;
 import main.java.play.Person;
 import main.java.play.SchereSteinPapier;
 import main.java.play.User;
 
 public class TestSSP {
-	private InputStream inputStream;
 	private User person = new Person();
 	private User computer = new Computer();
 	private HashMap<String, String> gameMap = new HashMap<String, String>();
