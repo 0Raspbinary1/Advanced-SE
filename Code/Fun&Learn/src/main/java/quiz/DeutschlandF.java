@@ -2,12 +2,13 @@ package main.java.quiz;
 
 public class DeutschlandF implements Questions {
 	
+	String[][] de;
+
+	
 	@Override
 	public String[][] getArray() {
 		return de;
 	}
-
-	String[][] de;
 
 	public DeutschlandF() {
 		initQ();

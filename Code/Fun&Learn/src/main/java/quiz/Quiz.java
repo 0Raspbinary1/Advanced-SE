@@ -13,28 +13,37 @@ public class Quiz {
 	
 	public Quiz(String eingabe) {
 		this.setCharMap();
-		this.questions = new ParseQuestions(eingabe).getQuestionArray();
+		ParseQuestions parseQ = new ParseQuestions(eingabe);
+		parseQ.parseQuestions();
+		this.questions = parseQ.getQuestionArray();
+	}
+
+	public Quiz() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public void perform(String [] args) {
-		for(int i = 0; i <this.questions.length;i++) {
+		for(int i = 0; i < this.questions.length;i++) {
 			System.out.println(this.questions[i].getQuestion());
 			printAnswers(this.questions[i].getAnwsers());
 			String guess = HandleInput.getInput(this.charMap, System.in, false);
-			validateAnswer(guess, this.questions[i].getRightAnswer());
+			System.out.println(validateAnswer(guess, this.questions[i].getRightAnswer()));
+			System.out.println("Deine aktuelle Punktzahl betraegt: "+ this.score + "\n\n");
 		}
 		System.out.println("Quiz zu Ende. "+ this.score +" von moeglichen " + questions.length + " Punkten erreicht\n\n");
 		QuizMain.main(args);;
 	}
 
-	private void validateAnswer(String guess, String rightAnswer) {
+	public String validateAnswer(String guess, String rightAnswer) {
 		if(guess.equals(rightAnswer)) {
 			System.out.println("Richtige Antwort");
 			this.score++;
+			return "Richtige Antwort";
 		}else {
 			System.out.println("Falsche Antwort");
+			return "Falsche Antwort";
 		}
-		System.out.println("Deine aktuelle Punktzahl betraegt: "+ this.score +"\n\n");
+		
 	}
 
 	private void printAnswers(String[] answers) {

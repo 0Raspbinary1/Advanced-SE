@@ -1,5 +1,6 @@
 package main.java.quiz;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ import main.java.all.HandleInput;
 public class QuizMain {
 
 	private static HashMap<String, String> map = new HashMap<String, String>();
+	private static InputStream sysIn;
 	
 	public static void main(String[] args) {
 		setMap();
