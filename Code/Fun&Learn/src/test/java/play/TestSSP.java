@@ -30,21 +30,19 @@ public class TestSSP {
 		String computer = this.computer.getChoice();
 		String person = computer; 
 		var compare = new SchereSteinPapier();
-		assertEquals("1", compare.compare(computer, person));		
+		assertEquals("draw", compare.compare(computer, person));		
 	}
 	
 	@Test
 	public void testCompareWin() {
-		String computer = this.computer.getChoice();
-		String person = computer; 
 		var compare = new SchereSteinPapier();
-		assertEquals("2", compare.compare("schere", "stein"));		
+		assertEquals("win", compare.compare("schere", "stein"));		
 	}
 	
 	@Test
 	public void testCompareLose() {
 		var compare = new SchereSteinPapier();
-		assertEquals("0", compare.compare("stein", "schere"));		
+		assertEquals("lose", compare.compare("stein", "schere"));		
 	}
 	
 	@Test
