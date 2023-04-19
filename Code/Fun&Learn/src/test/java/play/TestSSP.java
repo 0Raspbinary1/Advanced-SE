@@ -17,7 +17,8 @@ public class TestSSP {
 	private User person = new Person();
 	private User computer = new Computer();
 	private HashMap<String, String> gameMap = new HashMap<String, String>();
-
+	private SchereSteinPapier sssPlay = new SchereSteinPapier();
+	
 	@Before
 	public void setGameMap() {
 		this.gameMap.put("SCHERE", "schere");
@@ -29,20 +30,17 @@ public class TestSSP {
 	public void testCompareDraw() {
 		String computer = this.computer.getChoice();
 		String person = computer; 
-		var compare = new SchereSteinPapier();
-		assertEquals("draw", compare.compare(computer, person));		
+		assertEquals("draw", this.sssPlay.compare(computer, person));		
 	}
 	
 	@Test
 	public void testCompareWin() {
-		var compare = new SchereSteinPapier();
-		assertEquals("win", compare.compare("schere", "stein"));		
+		assertEquals("win", this.sssPlay.compare("schere", "stein"));		
 	}
 	
 	@Test
 	public void testCompareLose() {
-		var compare = new SchereSteinPapier();
-		assertEquals("lose", compare.compare("stein", "schere"));		
+		assertEquals("lose", this.sssPlay.compare("stein", "schere"));		
 	}
 	
 	@Test
@@ -68,27 +66,26 @@ public class TestSSP {
 	public void testValidateFinalResultFehler() {
 		int computerPunkte = 2;
 		int personPunkte = 2;
-		assertEquals("Fehler", new SchereSteinPapier().validateFinalResult(computerPunkte, personPunkte));
+		assertEquals("Fehler", this.sssPlay.validateFinalResult(computerPunkte, personPunkte));
 	}
 	
 	@Test
 	public void testValidateFinalResultSieg() {
 		int computerPunkte = 1;
 		int personPunkte = 2;
-		assertEquals("Glueckwunsch zum Sieg!", new SchereSteinPapier().validateFinalResult(personPunkte, computerPunkte));
+		assertEquals("Glueckwunsch zum Sieg!", this.sssPlay.validateFinalResult(personPunkte, computerPunkte));
 	}
 	
 	@Test
 	public void testValidateFinalResultNiederlage() {
 		int computerPunkte = 2;
 		int personPunkte = 1;
-		assertEquals("Schade, vielleicht beim naechsten Spiel!", new SchereSteinPapier().validateFinalResult(personPunkte, computerPunkte));
+		assertEquals("Schade, vielleicht beim naechsten Spiel!", this.sssPlay.validateFinalResult(personPunkte, computerPunkte));
 	}
 	
 	@Test
 	public void testIncrementUserPoints() {
 		this.person.setPoints(1);
-//		int oldPoints = this.person.getUserPoints();
 		this.person.incrementPoints();
 		
 		assertEquals(2, this.person.getPoints());
