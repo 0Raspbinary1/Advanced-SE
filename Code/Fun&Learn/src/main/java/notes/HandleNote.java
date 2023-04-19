@@ -22,13 +22,11 @@ public class HandleNote {
 	private HashMap<String, String> numberMap = new HashMap<>();
 	private HashMap<String, String> optionMap = new HashMap<>();
 	private String text = "Option auswaehlen\n A: Anzeigen\n L: Loeschen\n N: neue Notiz erstellen\n S: zum Start zurueck\n X: Programm beenden";
-//	private InputStream systemIn;
 	private boolean isTest = false; 
 	private NoteList noteList = new NoteList();
 	private String dir = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "Notes by Fun&Learn";
 	
 	public HandleNote() {
-//		this.systemIn = systemIn;
 		this.inititateOptionMap();
 	}
 	
@@ -58,10 +56,6 @@ public class HandleNote {
 		}
 		NotesStartSite.main(args);
 	}
-
-//	public void setSystemIn(InputStream systemIn) {
-//		this.systemIn = systemIn;
-//	}
 
 	public void delete() {
 		String pathString = this.noteList.getDir() + File.separator + this.fileName;
@@ -158,18 +152,11 @@ public class HandleNote {
 		int index = 0;
 		for (String name : fileMap.keySet()) {
 			numberMap.put(""+ index, name);
-//			System.out.println(index++ + ": " + name + "\n");
 			list.append(index++ + ": " + name + "\n");
 		}
-//		System.out.println(list.toString());
 		return list.toString();
 	}
 
-//	private void initiateMaps() {
-//		
-//		inititateOptionMap();
-//	}
-	
 	private void inititateOptionMap() {
 		this.optionMap.put("A", "show");
 		this.optionMap.put("D", "delete");
@@ -207,6 +194,4 @@ public class HandleNote {
 			break;
 		}
 	}
-	
-	
 }
