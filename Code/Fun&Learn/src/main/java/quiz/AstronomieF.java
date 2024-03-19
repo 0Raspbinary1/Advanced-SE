@@ -51,6 +51,12 @@ public class AstronomieF implements Questions{
 		this.as[5][3] = "39 Minuten und 8 Sekunden";
 		this.as[5][4] = "2 Stunden und 47 Minuten";
 		this.as[5][5] = "b";
+		this.as[6][0] = "Welches gaengige Problem kann bei der Inbetriebnahme eines Raspberry Pi auftreten?";
+		this.as[6][1] = "Kein Apfelsaft im Kuehlschrank";
+		this.as[6][2] = "Kein Stromkabel angeschlossen";
+		this.as[6][3] = "Bitte wenden";
+		this.as[6][4] = "Hier koennte Ihre Werbung stehen";
+		this.as[6][5] = "Bayern!";
 	}
 
 }
